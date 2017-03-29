@@ -9,3 +9,6 @@ J2objc is great tech, but integrating code sharing into your workflow is somewha
 3. A library to provide an extended Android stack inside iOS
 4. Testing support classes and libraries
 
+## Gradle Plugin
+
+The gradle plugin works inside a standalone java or android plugin project. It manages the j2objc specific dependencies, calls the j2objc transpiler, and can package an archive for publishing. [Read more](gradle.html).
