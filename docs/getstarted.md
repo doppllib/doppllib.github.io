@@ -6,5 +6,5 @@ We have a moderately modified version of J2objc, mostly around how files are nam
 
 ### Binary
 
-Download the [binary zip}(https://s3.amazonaws.com/dopplmaven/dist.zip) from here 
+Download the [binary zip](https://s3.amazonaws.com/dopplmaven/dist.zip) from here 
 
