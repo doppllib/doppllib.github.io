@@ -12,7 +12,7 @@ Extract the zip file and record the location. That will be REPO_PATH later in th
 
 ### Source
 
-Clone our forked repo at [https://github.com/doppllib/j2objc](https://github.com/doppllib/j2objc). To build the source, run:
+Clone our forked repo at [https://github.com/doppllib/j2objc](https://github.com/doppllib/j2objc). To build the source, see the [INSTALL](https://github.com/doppllib/j2objc/blob/master/INSTALL) doc, and then run: 
 
 ```
 make -j8 frameworks
