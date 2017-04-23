@@ -18,6 +18,6 @@ Testing libraries that are standard Java will likely be OK to translate. However
 
 To support testing at a more "application" level and/or avoid abstracting out implementation details, you can use our wrapper around Robolectric to create a testable Android runtime implementation in iOS, or delegate to Robolectric when running in Java.
 
-* This will **NOT** do everything Robolectric does *
+**This will NOT do everything Robolectric does**
 
 Robolectric has a lot of support for threads, UI components, etc. Our wrapper simply provides access to Context. The tests will run in the UI thread, and you can manipulate threads as needed as if it were a standard app. Robolectric provides far more control, and most of these features are way out of current scope.
