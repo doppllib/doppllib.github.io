@@ -36,3 +36,62 @@ Inside a doppl dependency you will find
 2. src folder - Translated objective c, as well as c++ if any
 3. lib.mappings - Explicitly maps java class to objective-c file. This exists because core j2objc uses exploded folders and doppl uses long file names, to play better with Xcode. Don't worry about it too much as the plugin will deal with this.
 
+Also, If you look at the numbering structure, by convention we'll create a branch tagged at a public release version of the source library and work from that. In this example, we started with rxjava 1.2.1. From there, another number is used to specify doppl version, as changes to memory management may be ongoing. There's also a gradle reason for dependency resolution, but best described elsewhere. You obviously don't have to conform to this, and in cases where you're publishing both the java and doppl library, it's your call, but that's what we do.
+
+## Building the library
+
+Run the following:
+
+```
+./gradlew dopplArchive
+```
+
+That will create the archive structure and file. It will also define an artifact called 'dopplArchive' which you can reference and publish.
+
+## Local (touchlab) build process
+
+We use ivy repos because they were easier to set up with multiple artifacts. Maven publish didn't like this much. Our general ivy setup is as follows:
+
+```
+publishing {
+    publications {
+        ivy(IvyPublication) {
+            from components.java
+            module 'android-database-sqlcipher'
+            artifact(dopplArchive) {
+                classifier 'doppl'
+                extension 'jar'
+            }
+        }
+    }
+
+    repositories {
+        ivy { url dopplIvyDeploy }
+    }
+}
+```
+
+The 'module' string is optional. If your project target name is the same, you can leave this off. The classifier is 'doppl', as discussed. Currently our publish process puts artifacts in a local folder, and an external sync process sends them to Amazon S3. This will be pushed to a standard repo soon.
+
+To set up 'dopplIvyDeploy', create/edit
+
+```
+~/.gradle/gradle.properties
+```
+
+In that file, add a property like the following
+
+```
+dopplIvyDeploy=file://Users/youruser/yourrepofolder
+```
+
+This should start as an empty folder (ie. don't point it at your local gradle cache or whatever).
+
+Next up, you'll notice this at the top of existing library home build scripts:
+
+```
+apply from: '../dopplversions.gradle'
+```
+
+This file globally defines version strings for existing libraries and the core project and gradle plugin. To support this, I clone all libraries to the same directory, and have that file in the root directory. Ask me for it. As we standardize libraries, the version info should be kept in source control directly. But that's what it is.
+
