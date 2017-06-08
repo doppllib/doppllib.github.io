@@ -1,8 +1,8 @@
 # General Design and Purpose
 
-Doppl is a build framework modeled on top of J2objc. J2objc itself is stable and performant, but designed to be a core piece of technology that is fairly environment neutral. As such, it's Android code is minimal (Log, etc), and does not have a "default" build tool, other than make files (basically).
+Doppl is a build framework modeled on top of J2objc. J2objc itself is stable and performant, but designed to be a core piece of technology that is fairly environment neutral. As such, its Android code is minimal (Log, etc), and does not have a "default" build tool, other than make files (basically).
 
-J2objc is certainly usable on it's own, but setup and configuration are non-trivial, and if specifically building for Android and iOS (not general Java that might be used on a server or with GWT), is somewhat limited in the amount of code that can be shared.
+J2objc is certainly usable on its own, but setup and configuration are non-trivial, and if specifically building for Android and iOS (not general Java that might be used on a server or with GWT), is somewhat limited in the amount of code that can be shared.
 
 Among Doppl's goals:
 
@@ -31,4 +31,3 @@ All other cross platform methodologies involve a 3rd language and/or ecosystem, 
 Doppl's dev is done in Android Studio, so assuming you understand the design patterns, which dovetail well with best practices, your Android time should be unaffected. Assuming iOS has similar screens and features, logic (and logic tests) can easily be shared, cutting down on development time, "copy" bugs
 
 ## Risk
-

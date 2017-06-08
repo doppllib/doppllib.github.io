@@ -10,8 +10,7 @@ future.
 
 https://github.com/doppllib/gson-doppl
 
-Very stable and performant in general. A few unit test issues with TimeZone as it comes
-from underlying iOS data, and not 100% the same (although these are extreme cases).
+Very stable and performant in general. A few unit test issues with TimeZone as it comes from underlying iOS data, and not 100% the same (although these are extreme cases).
 
 + 2.6.2 - 💚
 

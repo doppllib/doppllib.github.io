@@ -1,6 +1,6 @@
 # Creating a library
 
-The fundamental goal of creating a library is to publish a doppl artifact to an accesible repo. Doppl artifacts are a zip archive that conforms to a specific structure, which is defined and constructed with the doppl gradle plugin.
+The fundamental goal of creating a library is to publish a doppl artifact to an accessible repo. Doppl artifacts are a zip archive that conforms to a specific structure, which is defined and constructed with the doppl gradle plugin.
 
 For most simple libraries, the java used to create the objective-c code matches the source library 100%. In other cases, some classes are modified or removed. In other, more complex examples, custom native code is supplied.
 
@@ -94,4 +94,3 @@ apply from: '../dopplversions.gradle'
 ```
 
 This file globally defines version strings for existing libraries and the core project and gradle plugin. To support this, I clone all libraries to the same directory, and have that file in the root directory. Ask me for it. As we standardize libraries, the version info should be kept in source control directly. But that's what it is.
-
