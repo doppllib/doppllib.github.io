@@ -184,10 +184,9 @@ dt {
 
       a {
         color: white;
-        border: 1px solid #5d910b;
         background: linear_gradient(#2a2d37, #2a2d37);
         border-radius: 5px;
-        box-shadow: inset 0px 1px 0px rgba(255,255,255,.3), 0px 3px 7px rgba(0,0,0,.7);
+        //box-shadow: inset 0px 1px 0px rgba(255,255,255,.3), 0px 3px 7px rgba(0,0,0,.7);
 
         background-color: #2a2d37;
         padding: 10px 12px;
@@ -198,10 +197,10 @@ dt {
         text-align:center;
 
         &:hover {
-          background: linear_gradient(#749619, #527f0e);
-          background-color: #659e10;
-          border: 1px solid #527f0e;
-          box-shadow: inset 0px 1px 1px rgba(0,0,0,.2), 0px 1px 0px rgba(0,0,0,.0);
+          //background: linear_gradient(#36303a, #36303a);
+          background-color: #36303a;
+          //border: 1px solid #527f0e;
+          //box-shadow: inset 0px 1px 1px rgba(0,0,0,.2), 0px 1px 0px rgba(0,0,0,.0);
         }
       }
 
