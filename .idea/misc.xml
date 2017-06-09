@@ -1,31 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="GradleLocalSettings">
-    <option name="modificationStamps">
-      <map>
-        <entry key="$USER_HOME$/Downloads/touchlab/progtestDupes" value="2962023620000" />
-        <entry key="$USER_HOME$/Downloads/touchlab/progtestGrid" value="2962023758000" />
-        <entry key="$PROJECT_DIR$/../gradle-apt-plugin" value="2964172312000" />
-        <entry key="$PROJECT_DIR$/../mockito-doppl" value="5871741270000" />
-        <entry key="$PROJECT_DIR$/../realm-java" value="2970753878000" />
-        <entry key="$USER_HOME$/devel/bc-java" value="10374288308000" />
-        <entry key="$USER_HOME$/devel_remote/fernflower" value="2971400760000" />
-        <entry key="$USER_HOME$/devel_remote/gradle" value="104119406956000" />
-        <entry key="$USER_HOME$/devel_remote/j2objc-gradle" value="1488242888000" />
-        <entry key="$USER_HOME$/devel_remote/jd-core-java" value="1485354085000" />
-        <entry key="$USER_HOME$/devel_remote/jd-gui" value="7426764400000" />
-        <entry key="$USER_HOME$/devel_remote/realm-java" value="2941736094000" />
-        <entry key="$USER_HOME$/devel_remote/robolectric" value="22206662535000" />
-        <entry key="$USER_HOME$/devel_remote/spoon-gradle-plugin" value="2971863187000" />
-        <entry key="/Volumes/SecondDrive/devel2/RxJava" value="2958025788000" />
-        <entry key="/Volumes/SecondDrive/devel2/android-apt" value="1479569889000" />
-        <entry key="/Volumes/SecondDrive/devel2/realm-java" value="2971467633000" />
-      </map>
-    </option>
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
-  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -44,16 +18,6 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_3" default="true" assert-keyword="false" jdk-15="false" />
-  <component name="SbtLocalSettings">
-    <option name="modificationStamps">
-      <map>
-        <entry key="$USER_HOME$/devel/mercury-server" value="1450117582000" />
-      </map>
-    </option>
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
-  </component>
   <component name="masterDetails">
     <states>
       <state key="ProjectJDKs.UI">
