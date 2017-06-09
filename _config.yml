@@ -1,5 +1,20 @@
-title: Midnight theme
 description: Midnight is a theme for GitHub Pages.
 show_downloads: true
 google_analytics:
-theme: 
+theme:
+# Setup
+title:        Doppl
+tagline:      Android-centric cross platform
+paginate:     1
+
+# About/contact
+author:
+  name:       Kevin Galligan
+  url:        http://doppl.co
+
+# Gems
+gems:
+  - jekyll-paginate
+
+#Others
+markdown: kramdown
