@@ -1,22 +1,49 @@
 # Starting a new project in Android Studio
 
-1. Create your project as you usually would.
+One of Doppl's goals is to have zero impact on your Android dev time. You do, however, have to follow some rules. You can only translate the code that has support in J2objc or our extension libraries. You can't have UI and other platform specific structures in the shared code. This separation of concerns is generally considered "best practice" anyway, so generally not much of an issue.
 
-2. Setup a folder that will contain files and business logic to be shared between both of your apps.
+The simplest approach is to create a Java package called "shared" and use that for shared code, but you can organize the code any way you'd like.
 
-3. Code as usual, making sure your views and logic are clearly separated.
+To set the project up for Doppl, follow these steps:
 
-4. Add to your `local.properties` file `j2objc.home=[dist dir]` where `[dist dir]` is the path to the `dist` folder of j2objc.
+1. Add to your `local.properties` file `j2objc.home=[dist dir]` where `[dist dir]` is where you've extracted the Doppl J2objc zip file, or if you've built J2objc from source, the `dist` directory.
 
-5. In your project's root `build.gradle` file, under your `buildscript` and `allprojects` `repositories` block, add: `maven { url "https://dl.bintray.com/doppllib/maven" }`
+## Add the Gradle Plugin
 
-6. In the same file, add `classpath 'co.doppl:gradle:0.7.1-SNAPSHOT'` to the `dependencies` block.
+1. In your project's root `build.gradle` file, under your `buildscript` and `allprojects` `repositories` block, add: `maven { url "https://dl.bintray.com/doppllib/maven" }`
+*In the future these libraries should be on **jcenter***
 
-7. At the top of your app's `build.gradle` file, add `apply plugin: 'co.doppl.gradle'`
+2. In the same file, add `classpath 'co.doppl:gradle:0.8.0'` to the `dependencies` block.
 
-8. Any dependencies or libraries that you use within your shared logic folder need to have both `compile` and `doppl` variants in your `dependencies` block. Additionally, you must include doppl itself: `doppl 'co.doppl:androidbase:0.7.1-SNAPSHOT'`. For testing, you'll need to add `testDoppl 'co.doppl.lib:androidbasetest:0.7.1-SNAPSHOT:doppl'`
+3. At the top of your app's `build.gradle` file, add `apply plugin: 'co.doppl.gradle'`.
 
-9. At the bottom of this file, add the following code block:
+Your root `build.gradle` file should look like this
+
+```
+buildscript {
+    repositories {
+        jcenter()
+        maven { url "https://plugins.gradle.org/m2/" }
+        maven { url "https://dl.bintray.com/doppllib/maven" }
+    }
+    dependencies {
+        classpath "co.doppl:gradle:0.8.0"
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://dl.bintray.com/doppllib/maven" }
+    }
+}
+```
+
+## Configure the Build
+
+1. Add Doppl specific dependencies as required by your shared code. `doppl` configuration for regular code, `testDoppl` for tests. Any dependencies or libraries that you use within your shared logic folder need to have both `compile` and `doppl` variants in your `dependencies` block. See the [Doppl library](doppllibrary.html) for extended Android support.
+
+2. At the bottom of the app's `build.gradle` file, add the following code block:
 ```
 dopplConfig {
 
@@ -28,24 +55,30 @@ dopplConfig {
     }
 }
 ```
-10. `copyMainOutput` points to the directory that you wish to deploy your Objective-C code to. You will see this structure in Xcode when you make your iOS project.
+3. `copyMainOutput` points to the directory that you wish to deploy your Objective-C code to.
 
-11. The `translatePattern` lists folders or specific files that you want to be translated to Objective-C.
+4. The `translatePattern` lists folders or specific files that you want to be translated to Objective-C. If you set up a separate Java build, and all of the code is shared, you can omit this.
 
-12. If your project has any compile time class generation in its tests (i.e. Dagger), you should first run `./gradlew test` in order to make sure those classes have been created so your tests can be translated correctly to Objective-C.
-
-13. Run `./gradlew dopplDeploy` to deploy your code to Objective-C. If you're going to continuously make changes that need to be deployed, instead run `./gradlew -t dopplDeploy`, which will watch your project for new files and will deploy them every time you explicitly save files.
+5. Run `./gradlew dopplDeploy` to deploy your code to Objective-C. If you're going to continuously make changes that need to be deployed, instead run `./gradlew -t dopplDeploy`, which will watch your project for new files and will deploy them every time you explicitly save files.
 
 # Getting your deployed code in Xcode
 
-1. Create a new project in Xcode and select `Single View Application`, and select Objective-C as your language. You can still use Swift in the project, but initially selecting Objective-C should help initial setup.
+J2objc by default does not use ARC. This means you'll need to tell Xcode that all of your Objective-C should not use ARC, but your manually written code most likely will. For our projects, we put the generated Objective-C in an embedded framework, which allows settings that apply to all files. You can organize your project any way you like, as long as ARC is turned off for J2objc-sourced files.
+
+The Xcode setup is currently somewhat complicated. We'll be working on better integrations over time, but for now, follow the instructions below and/or watch this video.
+
+(TODO make video)
+
+1. Create a new project in Xcode and select `Single View Application`, and select Objective-C as your language. You can still use Swift in the project, but initially selecting Objective-C should help setup.
     - In this project, we're not setting up git for the iOS project itself, as both projects are in the same folder, and thus one repo. You're not required to do this, but if you wish to set up git for the iOS project it will come up as a subproject and you will have to handle that yourself. This won't be a problem if you create your iOS project elsewhere.
 
-2. Go to `Xcode -> Preferences -> Locations` and select the Custom Paths tab. Enter in (**insert image of what to type into the paths part from the samples**), where Path is the path to your `dist` folder in j2objc.
+2. Go to `Xcode -> Preferences -> Locations` and select the Custom Paths tab. Add 'J2OBJC_LOCAL_PATH' and set Path
+to your J2objc dist directory (no trailing slash).
+![xcode paths](https://s3.amazonaws.com/dopplmaven/xcodepath.png)
 
 3. Now, save this project inside your Android app's root folder. Remember, in our Android app's `build.gradle` file we wrote this: `copyMainOutput "../[ios project folder]/[framework]/[output]"`
 
-4. (Optional) Now, if you want to create a Swift file, you can do so and create a bridging header. Or, from the Android side you can add a bridging header in your build.gradle file.
+4. (Optional) If you're using Swift, you'll want to create a bridging header. The easy way to do that is to create a Swift file. Xcode will ask if you want to create a briding header. Let it. You'll have to add all the generated Java, or let Doppl Gradle create bridging headers for your translated code. Best practice would probably be to include these generated files from your manually managed bridging header, as the generated files are periodically overwritten.
 
     1. Add the Header paths from the framework to the ios project.
 

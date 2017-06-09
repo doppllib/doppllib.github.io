@@ -24,23 +24,25 @@ Robolectric has a lot of support for threads, UI components, etc. Our wrapper si
 
 ## Running your tests
 
+The Doppl test library has helper classes that allow you to run translated JUnit tests in iOS. You'll need to provide a list of tests to run to the helper classes, either manually or using the test class file generator.
+
 #### From Android Studio
 
-You can run this process on its own by doing `./gradlew dopplTest`, which generates `dopplTests.txt` in your project's `build/j2objcSrcGenTest` directory. Otherwise, it'll automatically be triggered when you run `dopplDeploy`.
+The Doppl plugin will generate `dopplTests.txt` and copy that to your output directory. This file is generated when you run when you run `dopplDeploy` and have testing configured.
 
-By default, the plugin assumes that you'll have your test inside the `src/test/java` directory.
+By default, the plugin assumes that you'll have your test inside the `src/test/java` directory, and that your test files will be named something matching "&ast;&ast;/&ast;Test.java". The files selected also respect the `translatePattern`, so organize your files accordingly.
 
-Searches all directories to be translated for classes matching the specified pattern, and lists them in a `dopplTests.txt` file. If no `testIdentifier` pattern is included in your `dopplConfig`, a default pattern of `**/*Test.java` will be used.
+You can customize the name by specifying `testIdentifier` in the `dopplConfig` block.
 
 #### From Xcode
 
-Add the `dopplTests.txt` file to the `ios` target's `Copy Bundle Resources`.
+Add the `dopplTests.txt` file to the main application target's `Copy Bundle Resources`.
 
 In your `AppDelegate.m` add:
 
 ```
 [DopplRuntime start];
-    [CoTouchlabDopplTestingDopplJunitTestHelper runResourceWithNSString:@"dopplTests.txt"];
+[CoTouchlabDopplTestingDopplJunitTestHelper runResourceWithNSString:@"dopplTests.txt"];
 ```
 
 This will run all of tests in the classes listed in `dopplTests.txt` on app startup.
