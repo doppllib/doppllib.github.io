@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1abdac07-2b04-4bdb-907f-3b7419c5d321" name="Default" comment="" />
+    <list default="true" id="1abdac07-2b04-4bdb-907f-3b7419c5d321" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_sass/jekyll-theme-midnight.scss" afterPath="$PROJECT_DIR$/_sass/jekyll-theme-midnight.scss" />
+    </list>
     <ignored path="doppllib.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -95,11 +97,11 @@
             <entry file="file://$PROJECT_DIR$/_sass/jekyll-theme-midnight.scss">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="630">
-                  <caret line="186" column="8" selection-start-line="186" selection-start-column="8" selection-end-line="186" selection-end-column="8" />
+                  <caret line="187" column="8" selection-start-line="187" selection-start-column="8" selection-end-line="187" selection-end-column="8" />
                   <folding>
-                    <marker date="1497056941000" expanded="true" signature="2863:4387" ph="{...}" />
-                    <marker date="1497056941000" expanded="true" signature="3051:3460" ph="{...}" />
-                    <marker date="1497056941000" expanded="true" signature="3195:3452" ph="{...}" />
+                    <marker date="1497057400000" expanded="true" signature="2886:4410" ph="{...}" />
+                    <marker date="1497057400000" expanded="true" signature="3074:3483" ph="{...}" />
+                    <marker date="1497057400000" expanded="true" signature="3218:3475" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -129,8 +131,18 @@
           <file leaf-file-name="jekyll-theme-midnight.scss" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/_sass/jekyll-theme-midnight.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="49" column="15" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="15" />
+                <state relative-caret-position="210">
+                  <caret line="178" column="19" selection-start-line="178" selection-start-column="19" selection-end-line="178" selection-end-column="19" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="gradleplugin.md" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/docs/gradleplugin.md">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="234">
+                  <caret line="84" column="17" selection-start-line="84" selection-start-column="1" selection-end-line="84" selection-end-column="17" />
                   <folding />
                 </state>
               </provider>
@@ -232,6 +244,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="doppllib.github.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doppllib.github.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doppllib.github.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="docs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -724,12 +750,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1497022406136</updated>
-      <workItem from="1497022408162" duration="8047000" />
+      <workItem from="1497022408162" duration="8416000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8047000" />
+    <option name="totallyTimeSpent" value="8416000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="23" width="1920" height="1053" extended-state="6" />
@@ -851,10 +877,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/docs/gradleplugin.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="84" column="17" selection-start-line="84" selection-start-column="1" selection-end-line="84" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_sass/jekyll-theme-midnight.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="49" column="15" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="15" />
+        <state relative-caret-position="210">
+          <caret line="178" column="19" selection-start-line="178" selection-start-column="19" selection-end-line="178" selection-end-column="19" />
           <folding />
         </state>
       </provider>
