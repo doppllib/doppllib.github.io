@@ -178,20 +178,34 @@ dt {
     li {
       font-family: 'OpenSansLight', "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: normal;
-      list-style: none;
       display: inline;
       color: white;
-      line-height: 50px;
-      text-shadow: 0px 1px 0px rgba(0,0,0,.2);
       font-size: 14px;
 
       a {
+        color: white;
+
+        margin-top: 6px;
+        font-size:14px;
+        display:inline-block;
+        text-align:center;
+
+        &:hover {
+          //background: linear_gradient(#36303a, #36303a);
+          //background-color: #36303a;
+          //border: 1px solid #527f0e;
+          //box-shadow: inset 0px 1px 1px rgba(0,0,0,.2), 0px 1px 0px rgba(0,0,0,.0);
+          color: gray;
+        }
+      }
+
+      a.dark_button {
         color: white;
         background: linear_gradient(#2a2d37, #2a2d37);
         border-radius: 5px;
         //box-shadow: inset 0px 1px 0px rgba(255,255,255,.3), 0px 3px 7px rgba(0,0,0,.7);
 
-        background-color: #2a2d37;
+        backgrnound-color: #2a2d37;
         padding: 10px 12px;
         margin-top: 6px;
         line-height:14px;

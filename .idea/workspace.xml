@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1abdac07-2b04-4bdb-907f-3b7419c5d321" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_layouts/default.html" afterPath="$PROJECT_DIR$/_layouts/default.html" />
     </list>
     <ignored path="doppllib.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -125,7 +124,7 @@
           <file leaf-file-name="jekyll-theme-midnight.scss" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/_sass/jekyll-theme-midnight.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="235">
+                <state relative-caret-position="370">
                   <caret line="214" column="17" selection-start-line="214" selection-start-column="8" selection-end-line="214" selection-end-column="17" />
                   <folding />
                 </state>
@@ -793,12 +792,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1497022406136</updated>
-      <workItem from="1497022408162" duration="6150000" />
+      <workItem from="1497022408162" duration="6499000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6150000" />
+    <option name="totallyTimeSpent" value="6499000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="23" width="1920" height="1053" extended-state="6" />
@@ -899,22 +898,18 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_sass/jekyll-theme-midnight.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="199" column="8" selection-start-line="199" selection-start-column="8" selection-end-line="199" selection-end-column="26" />
-          <folding>
-            <marker date="1497053974000" expanded="true" signature="2981:4169" ph="{...}" />
-            <marker date="1497053974000" expanded="true" signature="3265:3915" ph="{...}" />
-            <marker date="1497053974000" expanded="true" signature="3675:3907" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_layouts/default.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_sass/jekyll-theme-midnight.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="214" column="17" selection-start-line="214" selection-start-column="8" selection-end-line="214" selection-end-column="17" />
           <folding />
         </state>
       </provider>
