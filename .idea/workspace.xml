@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1abdac07-2b04-4bdb-907f-3b7419c5d321" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/what.mdown" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/overview.md" afterPath="$PROJECT_DIR$/overview.md" />
-    </list>
+    <list default="true" id="1abdac07-2b04-4bdb-907f-3b7419c5d321" name="Default" comment="" />
     <ignored path="doppllib.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -60,17 +56,17 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="prism.css" pinned="false" current-in-tab="false">
+          <file leaf-file-name="prism.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/assets/css/prism.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+                <state relative-caret-position="-1230">
+                  <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="overview.md" pinned="false" current-in-tab="true">
+          <file leaf-file-name="overview.md" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/overview.md">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="75">
@@ -875,6 +871,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="1abdac07-2b04-4bdb-907f-3b7419c5d321" name="Default" comment="" />
@@ -882,12 +881,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1497022406136</updated>
-      <workItem from="1497022408162" duration="9445000" />
+      <workItem from="1497022408162" duration="9617000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9445000" />
+    <option name="totallyTimeSpent" value="9617000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="23" width="1920" height="1053" extended-state="6" />
@@ -1087,14 +1086,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/prism.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/what.mdown">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1107,6 +1098,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/prism.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1230">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
           <folding />
         </state>
       </provider>
