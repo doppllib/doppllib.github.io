@@ -73,7 +73,7 @@ Instead of having your Objective-C classname be CoTouchlabDroidconAndroidSharedD
 `generatedSourceDirs`: Add generated source files directories (e.g. files created from Dagger annotations). You probably don't need this parameter; it's only used if the plugin cannot find the generated files by itself.
 
 ```groovy
-generatedSourceDirs build/generated/source/apt/main
+generatedSourceDirs 'build/generated/source/apt/main'
 ```
 
 `generatedTestSourceDirs`: Add generated source files directories (e.g. files created from Dagger annotations) in tests. Again, you probably don't need this parameter; it's only used if the plugin cannot find the generated files by itself.
