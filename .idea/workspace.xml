@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1abdac07-2b04-4bdb-907f-3b7419c5d321" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_sass/jekyll-theme-midnight.scss" afterPath="$PROJECT_DIR$/_sass/jekyll-theme-midnight.scss" />
-    </list>
+    <list default="true" id="1abdac07-2b04-4bdb-907f-3b7419c5d321" name="Default" comment="" />
     <ignored path="doppllib.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -99,9 +97,9 @@
                 <state relative-caret-position="630">
                   <caret line="188" column="8" selection-start-line="188" selection-start-column="8" selection-end-line="188" selection-end-column="8" />
                   <folding>
-                    <marker date="1497056741000" expanded="true" signature="2933:4457" ph="{...}" />
-                    <marker date="1497056741000" expanded="true" signature="3121:3530" ph="{...}" />
-                    <marker date="1497056741000" expanded="true" signature="3265:3522" ph="{...}" />
+                    <marker date="1497056827000" expanded="true" signature="2933:4457" ph="{...}" />
+                    <marker date="1497056827000" expanded="true" signature="3121:3530" ph="{...}" />
+                    <marker date="1497056827000" expanded="true" signature="3265:3522" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -131,8 +129,8 @@
           <file leaf-file-name="jekyll-theme-midnight.scss" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/_sass/jekyll-theme-midnight.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+                <state relative-caret-position="235">
+                  <caret line="101" column="3" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="3" />
                   <folding />
                 </state>
               </provider>
@@ -726,16 +724,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1497022406136</updated>
-      <workItem from="1497022408162" duration="7743000" />
+      <workItem from="1497022408162" duration="7873000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7743000" />
+    <option name="totallyTimeSpent" value="7873000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="23" width="1920" height="1053" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -745,7 +743,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16115262" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16115262" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.185836" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -855,8 +853,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_sass/jekyll-theme-midnight.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+        <state relative-caret-position="235">
+          <caret line="101" column="3" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="3" />
           <folding />
         </state>
       </provider>
