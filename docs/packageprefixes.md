@@ -18,7 +18,7 @@ file. The gradle plugin will also merge prefixes from dependencies, if applicabl
 In your dopplConfig block, add configs for your prefixes. For example, from the
 [Party Clicker Sample](https://github.com/doppllib/PartyClickerSample)
 
-```
+```groovy
 dopplConfig {
 
     //Other stuff...

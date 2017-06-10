@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1abdac07-2b04-4bdb-907f-3b7419c5d321" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/what.mdown" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/overview.md" afterPath="$PROJECT_DIR$/overview.md" />
     </list>
     <ignored path="doppllib.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,16 +28,6 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="head.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/_includes/head.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="page-footer.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/_includes/page-footer.html">
               <provider selected="true" editor-type-id="text-editor">
@@ -68,11 +60,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="prism.css" pinned="false" current-in-tab="true">
+          <file leaf-file-name="prism.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/assets/css/prism.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+                <state relative-caret-position="195">
+                  <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="overview.md" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/overview.md">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="75">
+                  <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
@@ -140,11 +142,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="gradleplugin.md" pinned="false" current-in-tab="true">
+          <file leaf-file-name="gradleplugin.md" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/docs/gradleplugin.md">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-106">
-                  <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
+                <state relative-caret-position="599">
+                  <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="what.md" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/what.md">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -251,9 +263,10 @@
         <option value="$PROJECT_DIR$/_sass/jekyll-theme-midnight.scss" />
         <option value="$PROJECT_DIR$/_layouts/default.html" />
         <option value="$PROJECT_DIR$/assets/css/prism.css" />
-        <option value="$PROJECT_DIR$/docs/gradleplugin.md" />
         <option value="$PROJECT_DIR$/docs/getstarted.md" />
         <option value="$PROJECT_DIR$/docs/dopplappfromscratch.md" />
+        <option value="$PROJECT_DIR$/docs/gradleplugin.md" />
+        <option value="$PROJECT_DIR$/overview.md" />
       </list>
     </option>
   </component>
@@ -869,12 +882,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1497022406136</updated>
-      <workItem from="1497022408162" duration="9269000" />
+      <workItem from="1497022408162" duration="9445000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9269000" />
+    <option name="totallyTimeSpent" value="9445000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="23" width="1920" height="1053" extended-state="6" />
@@ -1000,17 +1013,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_sass/jekyll-theme-midnight.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="107" column="20" selection-start-line="107" selection-start-column="20" selection-end-line="107" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/prism.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
-          <folding />
+        <state relative-caret-position="630">
+          <caret line="188" column="8" selection-start-line="188" selection-start-column="8" selection-end-line="188" selection-end-column="8" />
+          <folding>
+            <marker date="1497058031000" expanded="true" signature="2886:4429" ph="{...}" />
+            <marker date="1497058031000" expanded="true" signature="3093:3502" ph="{...}" />
+            <marker date="1497058031000" expanded="true" signature="3237:3494" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1064,8 +1073,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/gradleplugin.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-106">
-          <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
+        <state relative-caret-position="599">
+          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/what.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/prism.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/what.mdown">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/overview.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
           <folding />
         </state>
       </provider>
