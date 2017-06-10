@@ -35,3 +35,5 @@ Integrating platform specific code with shared code is natural, not a special ca
 Fluid native integration also removes a major concern inherent in many other platforms. What do you do if you're days from a release and something in the shared code isn't working? Easy. On Android, nothing, because there is no shared code. On iOS, code around it with your native logic and fix it later.
 
 J2objc is mature and used by major Google projects. Doppl makes it easier to integrate in your development lifecycle and expands how much code you can share.
+
+Dramatic increase in efficiency. Minimal increase in risk.
