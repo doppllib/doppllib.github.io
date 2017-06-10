@@ -9,8 +9,6 @@ body {
   color:#f0e7d5;
   font-weight: normal;
   background: #3d2d3b;
-  background-attachment: fixed !important;
-  background: linear_gradient(#4c384a, #31242f);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -167,6 +165,7 @@ dt {
 
   nav {
     //max-width: 650px;
+    vertical-align: middle;
     margin: 0 auto;
     padding: 0 10px;
     //background: blue;
@@ -185,10 +184,10 @@ dt {
       a {
         color: white;
 
-        margin-top: 6px;
+        margin: 6px;
         font-size:14px;
+        font-weight: bold;
         display:inline-block;
-        text-align:center;
 
         &:hover {
           //background: linear_gradient(#36303a, #36303a);
