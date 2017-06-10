@@ -19,7 +19,7 @@ To set the project up for Doppl, follow these steps:
 
 Your root `build.gradle` file should look like this
 
-```
+```groovy
 buildscript {
     repositories {
         jcenter()
@@ -44,7 +44,7 @@ allprojects {
 1. Add Doppl specific dependencies as required by your shared code. `doppl` configuration for regular code, `testDoppl` for tests. Any dependencies or libraries that you use within your shared logic folder need to have both `compile` and `doppl` variants in your `dependencies` block. See the [Doppl library](doppllibrary.html) for extended Android support.
 
 2. At the bottom of the app's `build.gradle` file, add the following code block:
-```
+```groovy
 dopplConfig {
 
     copyMainOutput "../[iOS project folder]/[framework]/[output]"

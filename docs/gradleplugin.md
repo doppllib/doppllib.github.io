@@ -34,7 +34,7 @@ For a list of frameworks that are currently supported, take a look at the [doppl
 
 `copyMainOutput`: The output path for Objective-C files.
 
-```
+```groovy
 copyMainOutput '../ios/scratchllframework/main'
 ```
 
@@ -42,7 +42,7 @@ copyMainOutput '../ios/scratchllframework/main'
 
 `mainBridgingHeaderOutput`: The output path for main's Objective-C bridging header file.
 
-```
+```groovy
 mainBridgingHeaderOutput '../ios/ios/Main-Bridging-Header.h'
 ```
 
@@ -54,7 +54,7 @@ mainBridgingHeaderOutput '../ios/ios/Main-Bridging-Header.h'
 	- `Include` specifies the directories or files that you explicitly want to be translated.
 	- `Exclude` specifies directories or files that you do not want translated.
 
-```
+```groovy
 translatePattern {
         include '**/shared/**'
     }
@@ -62,7 +62,7 @@ translatePattern {
 
 `translatedPathPrefix`: Maps a path to a prefix you wish to replace it with. For example:
 
-```
+```groovy
 translatedPathPrefix 'co.touchlab.droidconandroid.shared.data', 'DCD'
 ```
 
@@ -72,7 +72,7 @@ Instead of having your Objective-C classname be CoTouchlabDroidconAndroidSharedD
 
 `generatedSourceDirs`: Add generated source files directories (e.g. files created from Dagger annotations). You probably don't need this parameter; it's only used if the plugin cannot find the generated files by itself.
 
-```
+```groovy
 generatedSourceDirs build/generated/source/apt/main
 ```
 

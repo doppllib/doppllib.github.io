@@ -14,7 +14,7 @@ Extract the zip file and record the location. That will be REPO_PATH later in th
 
 Clone our forked repo at [https://github.com/doppllib/j2objc](https://github.com/doppllib/j2objc). To build the source, see the [INSTALL](https://github.com/doppllib/j2objc/blob/master/INSTALL) doc, and then run: 
 
-```
+```bash
 make -j8 frameworks
 ```
 
@@ -26,7 +26,7 @@ When complete, look for the *dist* dir in the source folder. This will be REPO_P
 
 Currently the gradle plugin and the doppl dependencies are in an S3 repo. Add the following lines to your build scripts to find them.
 
-```
+```groovy
 buildscript {
     repositories {
         //Other repos
@@ -37,9 +37,7 @@ buildscript {
         classpath 'co.touchlab.doppl:gradle:0.6.1-SNAPSHOT'
     }
 }
-```
 
-```
 allprojects {
     repositories {
         //Other repos
