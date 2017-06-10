@@ -10,7 +10,7 @@ The Doppl plugin started as a fork of the earlier [j2objc-gradle](https://github
 
 `doppl` and `testDoppl` are configurations, just like compile, where you then provide a library that has been configured to work with doppl.
 
-```
+```groovy
 doppl 'co.doppl.lib:androidbase:0.7.4.0'
 testDoppl 'co.doppl.lib:androidbasetest:0.7.4.0'
 
