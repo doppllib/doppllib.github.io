@@ -1,4 +1,4 @@
-/* http://prismjs.com/download.html?themes=prism-coy&languages=markup+css+clike+javascript+bash+c+cpp+git+java+json+kotlin+makefile+objectivec+properties+protobuf+sql+swift&plugins=line-highlight+line-numbers+file-highlight+toolbar+jsonp-highlight+command-line+copy-to-clipboard */
+/* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+bash+c+cpp+git+groovy+java+json+kotlin+makefile+objectivec+properties+protobuf+sql+swift&plugins=line-highlight+line-numbers+file-highlight+toolbar+jsonp-highlight+command-line+copy-to-clipboard */
 var _self = (typeof window !== 'undefined')
 	? window   // if in browser
 	: (
@@ -908,6 +908,72 @@ Prism.languages.git = {
 	 */
 	'commit_sha1': /^commit \w{40}$/m
 };
+
+Prism.languages.groovy = Prism.languages.extend('clike', {
+	'keyword': /\b(as|def|in|abstract|assert|boolean|break|byte|case|catch|char|class|const|continue|default|do|double|else|enum|extends|final|finally|float|for|goto|if|implements|import|instanceof|int|interface|long|native|new|package|private|protected|public|return|short|static|strictfp|super|switch|synchronized|this|throw|throws|trait|transient|try|void|volatile|while)\b/,
+	'string': [
+		{
+			pattern: /("""|''')[\s\S]*?\1|(\$\/)(\$\/\$|[\s\S])*?\/\$/,
+			greedy: true
+		},
+		{
+			pattern: /("|'|\/)(?:\\?.)*?\1/,
+			greedy: true
+		}
+	],
+	'number': /\b(?:0b[01_]+|0x[\da-f_]+(?:\.[\da-f_p\-]+)?|[\d_]+(?:\.[\d_]+)?(?:e[+-]?[\d]+)?)[glidf]?\b/i,
+	'operator': {
+		pattern: /(^|[^.])(~|==?~?|\?[.:]?|\*(?:[.=]|\*=?)?|\.[@&]|\.\.<|\.{1,2}(?!\.)|-[-=>]?|\+[+=]?|!=?|<(?:<=?|=>?)?|>(?:>>?=?|=)?|&[&=]?|\|[|=]?|\/=?|\^=?|%=?)/,
+		lookbehind: true
+	},
+	'punctuation': /\.+|[{}[\];(),:$]/
+});
+
+Prism.languages.insertBefore('groovy', 'string', {
+	'shebang': {
+		pattern: /#!.+/,
+		alias: 'comment'
+	}
+});
+
+Prism.languages.insertBefore('groovy', 'punctuation', {
+	'spock-block': /\b(setup|given|when|then|and|cleanup|expect|where):/
+});
+
+Prism.languages.insertBefore('groovy', 'function', {
+	'annotation': {
+		alias: 'punctuation',
+		pattern: /(^|[^.])@\w+/,
+		lookbehind: true
+	}
+});
+
+// Handle string interpolation
+Prism.hooks.add('wrap', function(env) {
+	if (env.language === 'groovy' && env.type === 'string') {
+		var delimiter = env.content[0];
+
+		if (delimiter != "'") {
+			var pattern = /([^\\])(\$(\{.*?\}|[\w\.]+))/;
+			if (delimiter === '$') {
+				pattern = /([^\$])(\$(\{.*?\}|[\w\.]+))/;
+			}
+
+			// To prevent double HTML-encoding we have to decode env.content first
+			env.content = env.content.replace(/&lt;/g, '<').replace(/&amp;/g, '&');
+
+			env.content = Prism.highlight(env.content, {
+				'expression': {
+					pattern: pattern,
+					lookbehind: true,
+					inside: Prism.languages.groovy
+				}
+			});
+
+			env.classes.push(delimiter === '/' ? 'regex' : 'gstring');
+		}
+	}
+});
 
 Prism.languages.java = Prism.languages.extend('clike', {
 	'keyword': /\b(abstract|continue|for|new|switch|assert|default|goto|package|synchronized|boolean|do|if|private|this|break|double|implements|protected|throw|byte|else|import|public|throws|case|enum|instanceof|return|transient|catch|extends|int|short|try|char|final|interface|static|void|class|finally|long|strictfp|volatile|const|float|native|super|while)\b/,
