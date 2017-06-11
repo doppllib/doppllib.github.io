@@ -84,7 +84,7 @@ pre[class*="language-"] {
 .token.char,
 .token.builtin,
 .token.inserted {
-	color: #a6e22e;
+	color: #77be54;
 }
 
 .token.operator,
@@ -103,12 +103,12 @@ pre[class*="language-"] {
 }
 
 .token.keyword {
-	color: #66d9ef;
+	color: #e165b0;
 }
 
 .token.regex,
 .token.important {
-	color: #fd971f;
+	color: #ffcc00;
 }
 
 .token.important,
@@ -135,7 +135,7 @@ pre[data-line] {
 	padding: inherit 0;
 	margin-top: 1em; /* Same as .prism’s padding-top */
 
-	background: hsla(24, 20%, 50%,.22);
+	background: hsla(24, 0%, 50%,.15);
 	//background: linear-gradient(to right, hsla(24, 20%, 70%,.2) 70%, hsla(24, 20%, 70%,.07));
 
 	pointer-events: none;

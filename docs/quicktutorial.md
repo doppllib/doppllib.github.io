@@ -18,9 +18,8 @@ Download the [Doppl J2objc Runtime](http://dopplmaven.s3-website-us-east-1.amazo
 
 Clone [the sample app](https://github.com/doppllib/PartyClickerSample).
 
-```bash
-git clone https://github.com/doppllib/PartyClickerSample.git
-```
+<pre class="command-line" data-user="you" data-host="yourmac"><code class="language-bash">
+git clone https://github.com/doppllib/PartyClickerSample.git</code></pre>
 
 Open the sample app in Android Studio.
 
@@ -101,9 +100,8 @@ Also notice at the bottom of the app's `build.gradle` file, there's an Exec task
 
 The shared code in the project is flagged with the `translatePattern` file pattern in build.gradle. Any code that matches that pattern will be pushed through J2objc and output to the folders specified `copyMainOutput` or `copyMainOutput`. To trigger the J2objc code transform run
 
-```bash
-./gradlew dopplDeploy
-```
+<pre class="command-line" data-user="you" data-host="yourmac"><code class="language-bash">
+./gradlew dopplDeploy</code></pre>
 
 Assuming no errors, this will push code changes to the ios project(s).
 
