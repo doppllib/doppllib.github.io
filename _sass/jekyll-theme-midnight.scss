@@ -2,6 +2,10 @@
 @import "fonts";
 @import "rouge-base16-dark.scss";
 
+.highlighter-rouge{
+  font-weight: bold;
+}
+
 body {
   padding:0px 0 20px 0px;
   margin: 0px;
@@ -89,30 +93,6 @@ blockquote {
   margin:0;
   padding:0 0 0 20px;
   font-style:italic;
-}
-
-code {
-  font-family: 'Lucida Sans', Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, monospace;
-  color:#efefef;
-  font-size:13px;
-  margin: 0 4px;
-  padding: 4px 6px;
-  border-radius: 2px;
-}
-
-pre {
-  padding:8px 15px;
-  background: #4a4a55;
-  border-radius: 5px;
-  overflow: auto;
-  //overflow-y: hidden;
-
-  code {
-    color: #ffffff;
-    //text-shadow: 0px 1px 0px #000;
-    margin: 0;
-    padding: 0;
-  }
 }
 
 table {
