@@ -268,12 +268,12 @@ pre.code-toolbar > .toolbar span:focus {
 }
 
 .command-line-prompt {
-	border-right: 1px solid #999;
+	/*border-right: 1px solid #999;*/
 	display: block;
 	float: left;
 	font-size: 100%;
 	letter-spacing: -1px;
-	margin-right: 1em;
+	/*margin-right: 1em;*/
 	pointer-events: none;
 
 	-webkit-user-select: none;
