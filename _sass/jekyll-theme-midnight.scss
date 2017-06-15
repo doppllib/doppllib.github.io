@@ -252,11 +252,14 @@ $headerHeight: 60px;
 
 #footerlinks
 {
-  width: 400px;
+  min-width: 360px;
+  max-width: 500px;
+
   display: -webkit-flex;
     display: flex;
     -webkit-justify-content: space-between;
     justify-content: space-between;
+
     a {
       color: #ae7faf;
 
