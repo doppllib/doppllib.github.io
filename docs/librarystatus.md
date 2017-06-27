@@ -81,33 +81,33 @@ not a generally recommended option (but it works).
 
 ### SqlDelight
 
-This works well, but still porting over repo from one org to another. Also need to rerun
-tests (were working with an older version).
+https://github.com/doppllib/sqldelight
+
+This works well, but needs testing setup.
 
 + 0.6.1 - 💛
 
 ### greenDAO
 
-This seems to work OK, but full test implementation pending. Removed ContentProvider support.
-Also need to split out
-with and without encryption, or figure out a good way to avoid compiler/linker issues.
+https://github.com/doppllib/greenDAO
+
+Works OK, but needs more testing. There are 2 different artifacts. One is without encryption, and one with.
 
 + 3.2.2 - 💛
 
 ### SqlCipher
 
-Seems to work, but will need more testing to be comfortable. The actual encrypting side
+Works, but could use more testing. The actual encrypting side
 is standard iOS SqlCipher, so testing will be more around full support of Android/jni
 bridge and no memory leaks (no current known issues, though)
 
 + 3.5.7 - 💛
 
-### Cupboard
-
-Library works well. Tests pass. Removed ContentProvider and associated references, but otherwise OK.
-Need to push to a new home as original root is Mercury. Soon...
-
 ## Wish List
+
+### Frameworks
+
+Doppl libraries should be packageable as iOS Frameworks. Ideally they'd be distributed with something like Carthage. There are a number of issues with setting this up, but Frameworks will make Swift much simpler to use (ie. no bridging headers). J2objc distributes with Frameworks, but something about their config is not set up 100% correctly.
 
 ### OKHttp
 
@@ -142,12 +142,6 @@ What is really needed is an ObjectiveC/J2objc implementation of dexmaker
 https://github.com/linkedin/dexmaker
 
 Then a separate version of mockito so we can have different versions available. Also probably easymock?
-
-### J2objc Frameworks
-
-J2objc has Frameworks, but the headers don't resolve completely, so you need to include header search paths and (sometimes?)
-references in bridging headers. The core frameworks should cooperate with swift without issue. Also it should be easy
-to do this with Doppl generated code.
 
 ### Consistent Header Names
 

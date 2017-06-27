@@ -10,11 +10,15 @@ Release an alpha, almost beta-ish verison of Doppl. We use this internally, but 
 
 Critical library additions: RxJava2, Retrofit2, Okhttp.
 
+Framework packaging.
+
 Review other libraries: Android Components, Mockito (spy support)
 
 J2objc base updates (Probably v2.1)
 
 ## Q4 2017
+
+[Class file translation?](https://groups.google.com/forum/#!topic/j2objc-discuss/kUJAE4aqpY8) If this works, Kotlin may be possible.
 
 Core J2objc frameworks fully "baked" (no bridging headers).
 
