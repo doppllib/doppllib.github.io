@@ -1,3 +1,5 @@
 # Why Analytics?
 
-We should create a stub doc that explains what we're collecting for analytics and why, and link to that from 'disableAnalytics'.
+In order to help build a better tool, we have some analytics tracking set up in the Gradle plugin. We're getting info on what features are being used and (soon) error tracking. This is anonymous. We don't know who you are or what project(s) you're working on. However, if you'd prefer to not send us any info, turn off analytics in the Gradle dopplConfig section.
+
+[Gradle Pluging Setup](gradleplugin.html#other)

@@ -16,7 +16,7 @@ One thing to keep in mind. Internally, J2ojbc tries to determine what is a "syst
 
 ### Mockito
 
-J2objc provides a version of Mockito, but it only supports mock. Spy will compile and run, but will do nasty things. As a short term kluge, we have an annotation processor that will actually create source files that can mock and properly delegate to spy. Read more about testing [here](testing.html). A proper implementation, hopefully external so we can have multiple versions of Mockito, as well as easymock (or whatever), is in the [wish list](librarystatus.html). The changes to J2objc's Mockito are largely around loading these classes and properly setting up the delegates. It works, but can be [fairly non-pretty](https://github.com/doppllib/retrofit-doppl/blob/v1.9.0/retrofit/src/test/java/retrofit/CallbackRunnableTest.java#L21).
+J2objc provides a version of Mockito, but it only supports mock. Spy will compile and run, but will do nasty things. As a short term kluge, we have an annotation processor that will actually create source files that can mock and properly delegate to spy. Read more about testing [here](debugging.html#testing). A proper implementation, hopefully external so we can have multiple versions of Mockito, as well as easymock (or whatever), is in the [wish list](librarystatus.html). The changes to J2objc's Mockito are largely around loading these classes and properly setting up the delegates. It works, but can be [fairly non-pretty](https://github.com/doppllib/retrofit-doppl/blob/v1.9.0/retrofit/src/test/java/retrofit/CallbackRunnableTest.java#L21).
 
 ### Okio
 

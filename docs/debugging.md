@@ -34,6 +34,51 @@ If you want to break at a certain point in your Java code but don't want to dig 
 
 J2ojbc comes with Junit. Creating basic Junit tests is simple. You should be able to call these without issue.
 
+In the dopplConfig section of your gradle build file, add a value for `copyTestOutput`. See the [sample app](https://github.com/doppllib/PartyClickerSample/blob/master/app/build.gradle#L57) for an example.
+
+```groovy
+dopplConfig {
+
+    copyMainOutput "../ios/partyclickerframework/main", "../iostest/partyclickerframework/main"
+    copyTestOutput "../iostest/iostestTests/test"
+
+    copyDependencies true
+
+    //Other stuff
+}
+```
+
+When you run `./gradlew dopplDeploy`, this should output test code which can be built and run in Xcode.
+
+### Running Tests
+
+Test code will be translated by the Gradle plugin just like the main code. You compile the code in Xcode and run it in a simulator. However, you have to tell Junit what to run. There is a helper class called `co.touchlab.doppl.testing.DopplJunitTestHelper`. You can provide it a list of class objects, strings, or a text file resource with class names in it. You can also provide a class name and method name to run a specific method (format [classname]#[methodname], `com.example.tests.FooTest#barMethod`).
+
+#### Test List Generator
+
+The Doppl plugin will generate `dopplTests.txt` and copy that to your output directory. This file is generated when you run when you run `dopplDeploy` and have testing configured.
+
+By default, the plugin assumes that you'll have your test inside the `src/test/java` directory, and that your test files will be named something matching "&ast;&ast;/&ast;Test.java". The files selected also respect the `translatePattern` setting, so organize your files accordingly.
+
+You can customize the name by specifying `testIdentifier` in the `dopplConfig` block.
+
+#### From Xcode
+
+Add the `dopplTests.txt` file to the main application target's `Copy Bundle Resources` Build Phase.
+
+In your `AppDelegate.m` add:
+
+```
+[DopplRuntime start];
+[CoTouchlabDopplTestingDopplJunitTestHelper runResourceWithNSString:@"dopplTests.txt"];
+```
+
+This will run all of tests in the classes listed in `dopplTests.txt` on app startup.
+
+#### Command Line
+
+You can run tests in Xcode from the command line. Although a little beyond the scope of this doc, [here is an example](https://github.com/doppllib/gson/blob/dp-v2.6.2/gson/build.gradle#L41).
+
 ### Android Context
 
 For some tests you'll need the Android context available. In standard Android dev environments you'd probably either use the androidTest, or Robolectric. Our current solution is a bit of a hybrid. When running in iOS, it uses a Context created for testing (co.touchlab.doppl.testing.TestingContext), and when running in Java, it will delegate to Robolectric. You'll need Robolectric in your dependencies or it will fail in Java.
@@ -61,28 +106,3 @@ J2ojbc ships with a version of Mockito. However, it does not support 'spy'. Just
 If you need spy in the short term, we've coded a very basic annotation processor that create mock objects. We're hoping to have a functional Mockito implementation soon, but if you need it now [see here](https://github.com/doppllib/core-doppl/tree/master/androidbasetest).
 
 Full Mockito support is high on the [wish list](/docs/librarystatus.html#wish-list), in case anybody wants a challenge.
-
-### Running Tests
-
-Test code will be translated by the Gradle plugin just like the main code. You compile the code in Xcode and run it in a simulator. However, you have to tell Junit what to run. There is a helper class called `co.touchlab.doppl.testing.DopplJunitTestHelper`. You can provide it a list of class objects, strings, or a text file resource with class names in it. You can also provide a class name and method name to run a specific method (format [classname]#[methodname], `com.example.tests.FooTest#barMethod`).
-
-#### Test List Generator
-
-The Doppl plugin will generate `dopplTests.txt` and copy that to your output directory. This file is generated when you run when you run `dopplDeploy` and have testing configured.
-
-By default, the plugin assumes that you'll have your test inside the `src/test/java` directory, and that your test files will be named something matching "&ast;&ast;/&ast;Test.java". The files selected also respect the `translatePattern` setting, so organize your files accordingly.
-
-You can customize the name by specifying `testIdentifier` in the `dopplConfig` block.
-
-#### From Xcode
-
-Add the `dopplTests.txt` file to the main application target's `Copy Bundle Resources` Build Phase.
-
-In your `AppDelegate.m` add:
-
-```
-[DopplRuntime start];
-[CoTouchlabDopplTestingDopplJunitTestHelper runResourceWithNSString:@"dopplTests.txt"];
-```
-
-This will run all of tests in the classes listed in `dopplTests.txt` on app startup.

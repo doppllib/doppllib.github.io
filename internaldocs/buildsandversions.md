@@ -1,3 +1,27 @@
+# Forking and Branching
+
+## Release tracking
+
+When tracking a remote project, create a fork. You *can* develop in master, but we're really targeting public library releases, so create a branch tied to the release.
+
+Name the branch `doppl-X.Y`. Whatever the published release of the remote project is, give it the same number, but prefix with doppl.
+
+To create a branch tied to a release, find the release on github, and get the release hash.
+
+<video
+    width="650"
+    height="255"
+    controls preload
+    data-setup='{ "autoplay": true, "preload": "auto" }'>
+   <source src="githubrelease.mp4" type='video/mp4' />
+  </video>
+
+On the command line, create a branch tied to that commit. In this case, for `auto` and version `1.3`:
+
+```bash
+git branch doppl-1.3 6b066e7d5a8fe03188f9d95bb2a3c27eceeeb630
+```
+
 ## All releases
 
 0. Check gradle plugin version (currently 0.8.2)
@@ -19,6 +43,8 @@ Select the right branch, obviously. For primary projects, the version name shoul
 
 If we're tracking a remote fork for a Doppl-only version, the version string should be
 
-"dpvX.Y.Z"
+"doppl-vX.Y.Z"
 
 This is to visually distinguish versions, obviously. It doesn't really do anything else.
+
+**NOTE** Previously branches and versions had different shortended prefixes, but `doppl` is more clear and consistent. Many existing projects have the old prefixes, but they should be standardized going forward.

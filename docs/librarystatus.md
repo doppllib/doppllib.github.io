@@ -103,6 +103,24 @@ bridge and no memory leaks (no current known issues, though)
 
 + 3.5.7 - 💛
 
+## Doppl Versions
+
+This is a personal cheat sheet for current Doppl versions as we update various sample apps.
+
++ Core - 0.8.0.0
++ Gson - 2.6.2.3
++ RxJava - 1.2.1.4
++ Retrofit 1 - 1.9.0.5
++ Dagger - 2.5.4
++ Sqldelight - 0.6.1.3
++ EventBus - 2.4.0.4
++ Squeaky - 0.5.3.0
++ Magicthreads - 0.9.3.0
++ GreenDAO - 3.2.2.1
++ Sqlcipher (Android) - 3.5.7.1
++ RoomDB - 1.0.0.2-alpha1
++ Truth - 0.0.2
+
 ## Wish List
 
 ### Frameworks

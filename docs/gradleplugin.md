@@ -1,3 +1,7 @@
+---
+submenu: gradle
+---
+
 # Doppl Gradle Plugin
 
 The Doppl Gradle plugin is the core of the Doppl framework. It is a tool to manage dependencies, collect target source code, and process everything through J2objc.
@@ -5,6 +9,19 @@ The Doppl Gradle plugin is the core of the Doppl framework. It is a tool to mana
 ## History
 
 The Doppl plugin started as a fork of the earlier [j2objc-gradle](https://github.com/j2objc-contrib/j2objc-gradle) plugin. Although ideologically similar, the two plugins differ significantly in the details. See below for more details on the changes.
+
+Many thanks to the [developers](https://github.com/doppllib/doppl-gradle/blob/master/NOTICE#L19) of j2objc-gradle.
+
+### Main Contributors
+
+* Advay Mengle @advayDev1 <source@madvay.com>
+* Bruno Bowden @brunobowden <github@brunobowden.com>
+* Michael Gorski @confile <mail@michaelgorski.de>
+
+### Thanks
+
+* Peter Niederweiser @pniederw <peter@pniederw.com>
+* Sterling Greene @big-guy <sterling.greene@gradleware.com>
 
 ## Dependency Management
 
@@ -82,9 +99,9 @@ generatedSourceDirs 'build/generated/source/apt/main'
 
 ## Other
 
-`disableAnalytics`: Boolean; whether you want Analytics turned on. Defaults to false. To see what data we're collecting, see [this document](analytics_link).
+`disableAnalytics`: Boolean; whether you want Analytics turned on. Defaults to false. To see what data we're collecting, see [this document](https://github.com/doppllib/doppl-gradle/blob/master/src/main/groovy/co/touchlab/doppl/gradle/analytics/DopplAnalytics.java).
 
-`emitLineDirectives`: Boolean; Generates debugging support. Defaults to false. For more information on debugging, see our [document on debugging](debugging_link).
+`emitLineDirectives`: Boolean; Generates debugging support. Defaults to false. For more information on debugging, see our [document on debugging](debugging.html).
 
 `translateArgs`: Used to add different options to the way your Java code is translated. The list of supported options can be found [here](https://developers.google.com/j2objc/reference/j2objc).
 
@@ -108,7 +125,9 @@ j2objc-gradle used Gradle's native build functionality to compile and package li
 
 ### No Pods
 
-j2objc-gradle used CocoaPods and attempted to manage the Xcode project directly. This can get messy. Doppl doesn't attempt to manage your Xcode project. You simply tell it where to put your Objective-C output. This is not all positive, as you have several setup steps on a new project, but CocoaPods can be difficult to work with when things aren't going right.
+j2objc-gradle used CocoaPods and attempted to manage the Xcode project directly. This can get messy. Doppl doesn't attempt to manage your Xcode project. You simply tell it where to put your Objective-C output. This is good and bad. It means you need to figure out how to package it, but we wanted to be platform agnostic.
+
+In the near future there will be better support for frameworks as dependencies, which will simplify both Xcode setup and Swift compatibility. This should hopefully be compatible with both CocoaPods and Carthage.
 
 ### Off By Default
 

@@ -13,6 +13,10 @@ Download the Doppl Runtime by clicking below. The runtime is distributed as a zi
 
 It is a mildly modified version of the core J2objc runtime.
 
+## NOTE!
+
+The Gradle plugin returns some analytics info to us. [Read here](/docs/disableanalytics.html) about what, why, and how to disable.
+
 ## Next Steps
 
 [Doppl J2ojbc Runtime](docs/dopplj2objc.html)

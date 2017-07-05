@@ -86,7 +86,7 @@ The app's **build.gradle** is set up like most Android applications, with a few 
 
 Currently the iOS app itself and the iOS JUnit tests are in different Xcode projects. They don't need to be, but for ease of organization, they were split out.
 
-J2objc ships with JUnit. Doppl has some helper classes and Gradle task support to help setting this up. How all that works is a [longer topic](testing.html), but you can open and run the test project to see how it works.
+J2objc ships with JUnit. Doppl has some helper classes and Gradle task support to help setting this up. How all that works is a [longer topic](debugging.html#testing), but you can open and run the test project to see how it works.
 
 Find the `iostest` folder in the root folder of the sample project. Open the Xcode project in that folder. Verify that you have the 'iostest' target and a valid simulator selected in Xcode.
 
