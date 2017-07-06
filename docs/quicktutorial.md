@@ -2,6 +2,12 @@
 
 For a quick intro to how Doppl works, try this [simple tutorial app](https://github.com/doppllib/PartyClickerSample). We'll walk you through the steps to get set up and running, and explain a few concepts along the way.
 
+## Video
+
+Who reads? Watch the setup video.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8T6EQAzZxCo" frameborder="0" allowfullscreen></iframe>
+
 ## Requirements
 
 1. A Mac OSX PC, with a few gigs of free drive space
@@ -55,7 +61,7 @@ Assuming everything is set up correctly, you should be able to navigate to the `
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gFXQjVsu2b8" frameborder="0" allowfullscreen></iframe>
 
-If the sample doesn't run, something in the setup isn't working. Retrace steps and/or watch the full demo video.
+If the sample doesn't run, something in the setup isn't working. Retrace steps and/or watch the [full demo video](#video).
 
 # The Parts
 

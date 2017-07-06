@@ -17,7 +17,9 @@
 
     <link rel="stylesheet" href="/assets/css/prism-old3.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+    <script>
+    var isMac = navigator.platform.toUpperCase().indexOf('MAC')>=0;
+    </script>
   </head>
   <body>
 
@@ -29,7 +31,12 @@
           <li ><a href="/docs/quicktutorial.html">Tutorial</a></li>
           <li ><a href="/docs/gradleplugin.html">Gradle Plugin</a></li>
           <li ><a href="/docs/debugging.html">Debugging and Testing</a></li>
-          <li style="float:right;margin-left: 20px"><a class="bright_button" href="/download.html">Download 2.0.1</a></li>
+          <script>
+          if(isMac)
+          {
+            document.write('<li style="float:right;margin-left: 20px"><a class="bright_button" href="/download.html">Download 2.0.1</a></li>')
+          }
+          </script>
           {% if site.show_downloads %}
             <li class="downloads"><a href="{{ site.github.zip_url }}">ZIP</a></li>
             <li class="downloads"><a href="{{ site.github.tar_url }}">TAR</a></li>

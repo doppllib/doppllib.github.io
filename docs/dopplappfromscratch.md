@@ -1,14 +1,20 @@
 # Starting a new project in Android Studio
 
-One of Doppl's goals is to have zero impact on your Android dev time. You do, however, have to follow some rules. You can only translate the code that has support in J2objc or our extension libraries. You can't have UI and other platform specific structures in the shared code. This separation of concerns is generally considered "best practice" anyway, so generally not much of an issue.
+One of the goals of Doppl is to have zero impact on your Android development time. However, there are some rules and patterns you'll need to follow to achieve this (or anything).
 
-The simplest approach is to create a Java package called "shared" and use that for shared code, but you can organize the code any way you'd like.
+Doppl is designed to allow you to share non-UI code. You need to tell it what code to share, and make sure it doesn't try to translate code that isn't supported. That generally means UI code, platform specific code, and any code with libraries that don't have Doppl dependencies.
 
-To set the project up for Doppl, follow these steps:
+The simplest approach is to create a Java package called "shared" and use that for shared code, but you can organize the code any way you'd like. You'll just need to tell the Gradle plugin what it is.
 
-1. Add to your `local.properties` file `j2objc.home=[dist dir]` where `[dist dir]` is where you've extracted the Doppl J2objc zip file, or if you've built J2objc from source, the `dist` directory.
+## Download and Install
+
+1. [/download.html](Download) the latest version. Extract and configure. See [/docs/quicktutorial.html](the tutorial) for more info.
+
+2. Add to your `local.properties` file `j2objc.home=[dist dir]` where `[dist dir]` is where you've extracted the Doppl J2objc zip file, or if you've built J2objc from source, the `dist` directory.
 
 ## Add the Gradle Plugin
+
+After creating a standard Android project with Studio, add the Doppl Gradle plugin.
 
 1. In your project's root `build.gradle` file, under your `buildscript` and `allprojects` `repositories` block, add: `maven { url "https://dl.bintray.com/doppllib/maven" }`
 *In the future these libraries should be on **jcenter***
@@ -55,11 +61,11 @@ dopplConfig {
     }
 }
 ```
-3. `copyMainOutput` points to the directory that you wish to deploy your Objective-C code to.
+3. `copyMainOutput` points to the directory that you wish to deploy your Objective-C code to. To output your test code, add the `copyTestOutput` value.
 
 4. The `translatePattern` lists folders or specific files that you want to be translated to Objective-C. If you set up a separate Java build, and all of the code is shared, you can omit this.
 
-5. Run `./gradlew dopplDeploy` to deploy your code to Objective-C. If you're going to continuously make changes that need to be deployed, instead run `./gradlew -t dopplDeploy`, which will watch your project for new files and will deploy them every time you explicitly save files.
+5. Run `./gradlew dopplDeploy` to deploy your code to Objective-C.
 
 # Getting your deployed code in Xcode
 
