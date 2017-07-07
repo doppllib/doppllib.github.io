@@ -4,7 +4,7 @@ submenu: gradle
 
 # Doppl Gradle Plugin
 
-The Doppl Gradle plugin is the core of the Doppl framework. It is a tool to manage dependencies, collect target source code, and process everything through J2objc.
+The [Doppl Gradle plugin](https://github.com/doppllib/doppl-gradle) is the core of the Doppl framework. It is a tool to manage dependencies, collect target source code, and process everything through J2objc.
 
 ## History
 

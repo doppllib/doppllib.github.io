@@ -15,7 +15,7 @@ Doppl builds upon J2objc.
 
 1. [Gradle plugin](docs/gradleplugin.html) to convert and package your shared Java code.
 2. Testing tools to facilitate Junit tests running in Objective-C/Xcode.
-3. [Expanded core Android support](docs.coreandroid.html) which includes SQLite, Shared Preferences, Threading, and other common parts of the Android runtime.
+3. [Expanded core Android support](https://github.com/doppllib/core-doppl) which includes SQLite, Shared Preferences, Threading, and other common parts of the Android runtime.
 4. [Tested and optimized versions](docs/librarystatus.html) of common Java/Android libraries.
 
 ## OK. Why?
