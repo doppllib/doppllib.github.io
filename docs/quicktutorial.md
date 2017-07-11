@@ -18,7 +18,7 @@ Who reads? Watch the setup video.
 
 Doppl is based on [J2objc](https://developers.google.com/j2objc/), which converts Java to Objective-C. Doppl is **almost** stock J2objc, but has some local tweaks, which means we have to distribute our own slightly altered version. The changes are mostly about file organization, rather than anything with the runtime. [Read more here](dopplj2objc.html).
 
-Download the [Doppl J2objc Runtime](http://dopplmaven.s3-website-us-east-1.amazonaws.com/dist.zip), and extract the zip file to your local drive. This is your **j2objc dist** directory.
+Download the [Doppl J2objc Runtime](/download.html), and extract the zip file to your local drive. This is your **j2objc dist** directory.
 
 ## Get the Sample
 
