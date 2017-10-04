@@ -2,6 +2,11 @@
 
 For a quick intro to how Doppl works, try this [simple tutorial app](https://github.com/doppllib/PartyClickerSample). We'll walk you through the steps to get set up and running, and explain a few concepts along the way.
 
+# Update Notice!!!
+
+All docs are getting a refresh. We've updated everything significantly with the recent release. Please make sure you 
+download 2.0.4, and update the repo URL.
+
 ## Video
 
 Who reads? Watch the setup video.
@@ -18,7 +23,7 @@ Who reads? Watch the setup video.
 
 Doppl is based on [J2objc](https://developers.google.com/j2objc/), which converts Java to Objective-C. Doppl is **almost** stock J2objc, but has some local tweaks, which means we have to distribute our own slightly altered version. The changes are mostly about file organization, rather than anything with the runtime. [Read more here](dopplj2objc.html).
 
-Download the [Doppl J2objc Runtime](/download.html), and extract the zip file to your local drive. This is your **j2objc dist** directory.
+Download the [2.0.4 Doppl J2objc Runtime](/download.html), and extract the zip file to your local drive. This is your **j2objc dist** directory.
 
 ## Get the Sample
 
@@ -47,6 +52,13 @@ If you're having trouble finding local.properties, watch the video:
 
 Assuming you have a device or emulator to test on, you should be able to run the Android app at this point.
 
+### Build Objective-C Code
+
+This command runs J2objc and outputs the Objective-C code for the sample app.
+
+<pre class="command-line" data-user="you" data-host="yourmac"><code class="language-bash">
+./gradlew dopplDeploy</code></pre>
+
 ### Configure Xcode
 
 Xcode also needs to know where J2objc is installed. Open XCode > Preferences, Locations > Custom Paths. Add 'J2OBJC_LOCAL_PATH' and set Path to **j2objc dist** (no trailing slash).
@@ -65,7 +77,9 @@ If the sample doesn't run, something in the setup isn't working. Retrace steps a
 
 # The Parts
 
-Back in Android Studio, find the root directory **build.gradle** file. This contains references to our artifact repo, which will eventually move to jcenter, and the classpath to the Doppl Gradle plugin.
+Back in Android Studio, find the root directory **build.gradle** file.
+
+This contains references to our artifact repo, which will eventually move to jcenter, and the classpath to the Doppl Gradle plugin.
 
 <pre class="language-groovy" data-src="https://raw.githubusercontent.com/doppllib/PartyClickerSample/master/build.gradle" ></pre>
 **[root]/build.gradle**
@@ -74,21 +88,21 @@ The app's **build.gradle** is set up like most Android applications, with a few 
 
 [2-3](#appbuild.2): Apply retrolambda and Doppl plugins
 
-[28-53](#appbuild.28): Project dependencies. Notice parallel `doppl` and `testDoppl` dependencies (Doppl is for [Doppelgänger](https://en.wikipedia.org/wiki/Doppelg%C3%A4nger))
+[28-61](#appbuild.28): Project dependencies. Notice parallel `doppl` and `testDoppl` dependencies (Doppl is for [Doppelgänger](https://en.wikipedia.org/wiki/Doppelg%C3%A4nger))
 
-[57-58](#appbuild.57): Where to copy Objective-C to. Can be multiple for each type.
+[65-66](#appbuild.57): Where to copy Objective-C to. Can be multiple for each type.
 
-[60](#appbuild.60): Generate bridging headers for Swift, if desired.
+[70-73](#appbuild.64): Shorten prefixes. More detail [here](packageprefixes.html).
 
-[64-67](#appbuild.64): Shorten prefixes. More detail [here](packageprefixes.html).
+[75](#appbuild.69): testAnnotationProcessor doesn't advertise it's output dir, so you need to specify.
 
-[69](#appbuild.69): testAnnotationProcessor doesn't advertise it's output dir, so you need to specify.
+[77-82](#appbuild.71): Tell Doppl what to translate
 
-[71-76](#appbuild.71): Tell Doppl what to translate
-
-<pre id="appbuild" class="language-groovy line-numbers" data-line="2-3,28-53,57-58,60,64-67,69,71-76" data-src="https://raw.githubusercontent.com/doppllib/PartyClickerSample/master/app/build.gradle" ></pre>
+<pre id="appbuild" class="language-groovy line-numbers" data-line="2-3,28-61,65-66,70-73,75,77-82" data-src="https://raw.githubusercontent.com/doppllib/PartyClickerSample/master/app/build.gradle" ></pre>
 
 ## Running Tests
+
+*Note* Tests are temporarily disabled. Updating sample.
 
 Currently the iOS app itself and the iOS JUnit tests are in different Xcode projects. They don't need to be, but for ease of organization, they were split out.
 

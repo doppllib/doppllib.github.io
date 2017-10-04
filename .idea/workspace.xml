@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1abdac07-2b04-4bdb-907f-3b7419c5d321" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/supportedlibraries.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_layouts/default.html" afterPath="$PROJECT_DIR$/_layouts/default.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/download.md" afterPath="$PROJECT_DIR$/download.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/quicktutorial.md" afterPath="$PROJECT_DIR$/docs/quicktutorial.md" />
     </list>
     <ignored path="doppllib.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,16 +24,6 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="prism-old3.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/assets/css/prism-old3.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2175">
-                  <caret line="145" column="0" lean-forward="false" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="overview.md" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/overview.md">
               <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -51,10 +37,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="supportedlibraries.md" pinned="false" current-in-tab="true">
+          <file leaf-file-name="supportedlibraries.md" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/docs/supportedlibraries.md">
               <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-                <state split_layout="SPLIT">
+                <state split_layout="FIRST">
                   <first_editor relative-caret-position="0">
                     <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                     <folding />
@@ -70,6 +56,19 @@
                 <state relative-caret-position="0">
                   <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="quicktutorial.md" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/docs/quicktutorial.md">
+              <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+                <state split_layout="FIRST">
+                  <first_editor relative-caret-position="606">
+                    <caret line="98" column="44" lean-forward="true" selection-start-line="98" selection-start-column="44" selection-end-line="98" selection-end-column="44" />
+                    <folding />
+                  </first_editor>
+                  <second_editor />
                 </state>
               </provider>
             </entry>
@@ -151,7 +150,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="default.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="default.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/_layouts/default.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="618">
@@ -224,7 +223,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="another-page.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="another-page.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/_site/another-page.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="338">
@@ -311,13 +310,13 @@
         <option value="$PROJECT_DIR$/overview.md" />
         <option value="$PROJECT_DIR$/assets/css/prism.css" />
         <option value="$PROJECT_DIR$/assets/css/prism-old3.css" />
-        <option value="$PROJECT_DIR$/docs/quicktutorial.md" />
         <option value="$PROJECT_DIR$/_sass/jekyll-theme-midnight.scss" />
         <option value="$PROJECT_DIR$/docs/dopplj2objc.md" />
         <option value="$PROJECT_DIR$/docs/gradleplugin.md" />
         <option value="$PROJECT_DIR$/_layouts/default.html" />
         <option value="$PROJECT_DIR$/_site/download.html" />
         <option value="$PROJECT_DIR$/download.md" />
+        <option value="$PROJECT_DIR$/docs/quicktutorial.md" />
       </list>
     </option>
   </component>
@@ -336,7 +335,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-2560" />
-    <option name="y" value="-301" />
+    <option name="y" value="-201" />
     <option name="width" value="1440" />
     <option name="height" value="877" />
   </component>
@@ -369,12 +368,22 @@
             <path>
               <item name="doppllib.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="doppllib.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="_site" type="462c0819:PsiDirectoryNode" />
+              <item name="_layouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="doppllib.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="doppllib.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="docs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="doppllib.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="doppllib.github.io" type="462c0819:PsiDirectoryNode" />
               <item name="internaldocs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="doppllib.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="doppllib.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -698,12 +707,12 @@
       <workItem from="1497536422195" duration="952000" />
       <workItem from="1497638543087" duration="599000" />
       <workItem from="1497665149192" duration="2947000" />
-      <workItem from="1506893142173" duration="2664000" />
+      <workItem from="1506893142173" duration="4826000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27545000" />
+    <option name="totallyTimeSpent" value="29707000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2560" y="-301" width="2560" height="1413" extended-state="6" />
@@ -1077,23 +1086,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/quicktutorial.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docs/generaldesign.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1170,17 +1162,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/supportedlibraries.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docs/librarystatus.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1206,16 +1187,6 @@
             <folding />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_layouts/default.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding>
-            <marker date="1507054231000" expanded="true" signature="1379:1408" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1255,6 +1226,44 @@
           <folding>
             <marker date="1499391726000" expanded="true" signature="1284:1313" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_layouts/default.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="618">
+          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding>
+            <marker date="1507054231000" expanded="true" signature="1379:1408" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/supportedlibraries.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/quicktutorial.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="606">
+            <caret line="98" column="44" lean-forward="true" selection-start-line="98" selection-start-column="44" selection-end-line="98" selection-end-column="44" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
