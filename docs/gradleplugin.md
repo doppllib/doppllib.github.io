@@ -41,7 +41,7 @@ The archive is zip format with the extension 'dop', which contains the Objective
 
 **Note**
 
-*We keep Objective-C in this archive, but we'll probably need to change that in the future. If/when J2objc metadata changes, old builds won't be compatible. There isn't really a technical reason to keep Objective-C vs the source Java itself, except (arguably) performance, but this is minimal.*
+*We keep Objective-C in this archive, but we'll ~~probably~~ need to change that in the future. If/when J2objc metadata changes, old builds won't be compatible. There isn't really a technical reason to keep Objective-C vs the source Java itself, except (arguably) performance, but this is minimal.*
 
 The libraries we've published tend to be prefixed with co.doppl, even when a fork of another public library, and have an extra number to their version. The extra number allows multiple releases tagged to a base version, but it's also there because Maven can't really handle two artifacts at one location.
 
