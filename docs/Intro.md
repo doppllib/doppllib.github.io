@@ -13,13 +13,13 @@ share much of the rest of your application logic between the two platforms
 
 ## Getting Your Feet Wet
 
-TBD pointer to PartyClicker
-TBD pointer to from-scratch tutorial
-TBD pointer to FAQ
+- TBD pointer to PartyClicker
+- TBD pointer to from-scratch tutorial
+- TBD pointer to FAQ
 
 ## Diving Into Doppl
 
-TBD pointer to [Scope](./Scope)
-TBD pointer to Android API whitelist
-TBD pointer to known-good libraries
-TBD pointer to support guide
+- TBD pointer to [Scope](./Scope)
+- TBD pointer to Android API whitelist
+- TBD pointer to known-good libraries
+- TBD pointer to support guide
