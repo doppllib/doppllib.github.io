@@ -19,7 +19,7 @@ share much of the rest of your application logic between the two platforms
 
 ## Diving Into Doppl
 
-- TBD pointer to [Scope](./Scope)
+- [Doppl Scope](./Scope)
 - TBD pointer to Android API whitelist
 - TBD pointer to known-good libraries
 - [Support](./Support)
