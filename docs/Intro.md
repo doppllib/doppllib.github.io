@@ -13,7 +13,7 @@ share much of the rest of your application logic between the two platforms
 
 ## Getting Your Feet Wet
 
-- TBD pointer to PartyClicker
+- [PartyClicker Tutorial](./Tutorial)
 - TBD pointer to from-scratch tutorial
 - TBD pointer to FAQ
 
@@ -22,4 +22,4 @@ share much of the rest of your application logic between the two platforms
 - TBD pointer to [Scope](./Scope)
 - TBD pointer to Android API whitelist
 - TBD pointer to known-good libraries
-- TBD pointer to support guide
+- [Support](./Support)
