@@ -21,5 +21,5 @@ share much of the rest of your application logic between the two platforms
 
 - [Doppl Scope](./Scope)
 - TBD pointer to Android API whitelist
-- TBD pointer to known-good libraries
+- [Doppl-Ready Libraries](./Libraries)
 - [Support](./Support)
