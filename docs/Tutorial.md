@@ -139,7 +139,7 @@ If you prefer, run the `dopplBuild` task from the command line, from the
 project root directory, using `gradle` (if you have a compatible version
 of Gradle installed) or `./gradlew` (if you prefer to use the Gradle Wrapper).
 
-[![gradle dopplBuild](https://img.youtube.com/vi/j43RPcEA7E4/0.jpg)](https://www.youtube.com/watch?v=j43RPcEA7E4)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/j43RPcEA7E4" frameborder="0" allowfullscreen></iframe>
 
 ## Step #5: Get the Output to the iOS Development Machine
 
@@ -159,7 +159,7 @@ to set up the iOS dependencies using CocoaPods.
 Then, switch to the `iosTest/` directory inside the `PartyClickerSample/` directory.
 From there, once again, run `pod install`, to set up the iOS dependencies using CocoaPods.
 
-[![pod install](https://img.youtube.com/vi/CpBFGIaygQ8/0.jpg)](https://www.youtube.com/watch?v=CpBFGIaygQ8)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CpBFGIaygQ8" frameborder="0" allowfullscreen></iframe>
 
 ## Step #7: Teaching Xcode About Doppl
 
@@ -177,8 +177,6 @@ add a new custom path via the + button, with the following values:
 directory on this machine)
 
 ![Custom Paths in Xcode](Tutorial-3.png)
-
-[![pod install](https://img.youtube.com/vi/jlkhdkKXTe4/0.jpg)](https://www.youtube.com/watch?v=jlkhdkKXTe4)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/swLXzvIOm9A" frameborder="0" allowfullscreen></iframe>
 
