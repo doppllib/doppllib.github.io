@@ -200,6 +200,8 @@ If you open the `iosApp/` workspace in Xcode and run it on a device or simulator
 you will see an custom equivalent iOS UI, working with the Doppl-supplied model
 objects and storage code:
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jlkhdkKXTe4" frameborder="0" allowfullscreen></iframe>
+
 ![Initial Party Clicker Screen on iOS](Tutorial-6.png)
 
 ![Click-Capture Screen on iOS](Tutorial-7.png)
