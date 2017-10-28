@@ -10,7 +10,7 @@ the equivalent Doppl library is the same name as the library, but with
 
 |Tested Version|Equivalent Doppl Version|
 |:------------:|:----------------------:|
-|`1.0.3`   |`1.0.0.0-rc1`           |
+|`1.0.3`       |`1.0.0.0-rc1`           |
 
 ## `android.arch.lifecycle:extensions`
 
@@ -32,11 +32,35 @@ the equivalent Doppl library is the same name as the library, but with
 |`1.0.0-alpha8`|`1.0.0.2-alpha8`        |
 |`1.0.0-rc1`   |`1.0.0.0-rc1`           |
 
+## `com.google.code.gson:gson`
+
+|Tested Version|Equivalent Doppl Version|
+|:------------:|:----------------------:|
+|`2.6.2`       |`2.6.2.5`               |
+
 ## `com.google.dagger:dagger`
 
 |Tested Version|Equivalent Doppl Version|
 |:------------:|:----------------------:|
 |`2.5`         |`2.5.6`                 |
+
+## `com.squareup.okhttp3:mockwebserver`
+
+|Tested Version|Equivalent Doppl Version|
+|:------------:|:----------------------:|
+|`3.4.2`       |`3.4.2.2`               |
+
+## `com.squareup.okhttp3:okhttp`
+
+|Tested Version|Equivalent Doppl Version|
+|:------------:|:----------------------:|
+|`3.4.2`       |`3.4.2.2`               |
+
+## `com.squareup.okhttp3:okhttp-ws`
+
+|Tested Version|Equivalent Doppl Version|
+|:------------:|:----------------------:|
+|`3.4.2`       |`3.4.2.2`               |
 
 ## `com.squareup.retrofit2:retrofit`
 
