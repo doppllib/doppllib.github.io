@@ -14,12 +14,11 @@ share much of the rest of your application logic between the two platforms
 ## Getting Your Feet Wet
 
 - [PartyClicker Tutorial](./Tutorial)
-- TBD pointer to from-scratch tutorial
-- TBD pointer to FAQ
+- Adding Doppl to an Existing Android Project &mdash; <i>coming soon!</i>
+- Frequently-Asked Questions &mdash; <i>coming soon!</i>
+- [Getting Help with Doppl](./Support)
 
 ## Diving Into Doppl
 
 - [Doppl Scope](./Scope)
-- TBD pointer to Android API whitelist
-- TBD pointer to known-good libraries
-- [Support](./Support)
+- Doppl-Ready Libraries &mdash; <i>coming soon!</i>
