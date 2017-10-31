@@ -190,7 +190,7 @@ run it in Xcode as well!
 Running the sample app on a device or emulator gives you a basic UI for defining
 events and capturing clicks:
 
-![Initial Party Clicker Screen on Android](Tutorial-4.png)git 
+![Initial Party Clicker Screen on Android](Tutorial-4.png)
 
 ![Click-Capture Screen on Android](Tutorial-5.png)
 
