@@ -24,6 +24,8 @@ Doppl runtime, [ask!](./Support)
 
 Not at the present time, sorry.
 
+While Doppl generates Objective-C code, it is included in your iOS project as a CocoaPod which can be effortlessly used from Swift
+
 ## Can We Convert Our Kotlin, Scala, Clojure, Etc. Code to iOS?
 
 Not at the present time, sorry.
