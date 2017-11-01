@@ -15,7 +15,7 @@ share much of the rest of your application logic between the two platforms
 
 - [PartyClicker Tutorial](./Tutorial)
 - TBD pointer to from-scratch tutorial
-- TBD pointer to FAQ
+- [Frequently-Asked Questions](./FAQ)
 
 ## Diving Into Doppl
 
