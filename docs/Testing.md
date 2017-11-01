@@ -47,7 +47,7 @@ dopplConfig {
 
 ### Tests and testDoppl
 
-Android unit tests employ JUnit, and so your `depedencies` will have a
+Android unit tests employ JUnit, and so your `dependencies` will have a
 `testImplementation` (or the older `testCompile`) statement to pull in JUnit.
 In addition, you can use Mockito, and Doppl provides some support for Robolectric,
 specifically for tests needing a `Context`, such as for testing database access.
@@ -268,7 +268,7 @@ from Robolectric. When running the tests on iOS, the mock comes from Doppl itsel
 ### Using the Test Runner
 
 First, add Robolectric to your `dependencies`
-(e.g., `testImplementation  "org.robolectric:robolectric:3.3.2"`), if you do not
+(e.g., `testImplementation "org.robolectric:robolectric:3.3.2"`), if you do not
 have it for other reasons already.
 
 Then, create a JUnit test class that uses 
@@ -357,7 +357,7 @@ The annotation processor for `@MockGen` is `co.doppl.lib:testapt`, and you
 will need to add this to your dependencies:
 
 ```groovy
-testAnnotationProcessor `co.doppl.lib:testapt:0.8.5`
+testAnnotationProcessor "co.doppl.lib:testapt:0.8.5"
 ```
 
 ### Adding @MockGen
