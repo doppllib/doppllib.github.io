@@ -56,7 +56,7 @@ successfully from the command line.
 
 Doppl does not require Android Studio. However, you are welcome to use it
 as well. These instructions work with Android Studio 2.3.3 and Android Studio
-3.0 RC1.
+3.0.
 
 ### iOS
 
