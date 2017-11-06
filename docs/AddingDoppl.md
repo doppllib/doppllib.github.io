@@ -278,6 +278,7 @@ dependencies {
     exclude group: 'com.android.support', module: 'support-media-compat'
   } // for https://issuetracker.google.com/issues/64909326
   implementation      "com.squareup.picasso:picasso:2.5.2"
+  implementation      "android.arch.lifecycle:reactivestreams:$archVer"
 
   implementation      "io.reactivex.rxjava2:rxjava:2.1.5"
   doppl               "co.doppl.io.reactivex.rxjava2:rxjava:2.1.5.0"
@@ -294,7 +295,6 @@ dependencies {
   doppl               "co.doppl.android.arch.lifecycle:runtime:$dopplArchVer"
   implementation      "android.arch.lifecycle:extensions:$archVer"
   doppl               "co.doppl.android.arch.lifecycle:extensions:$dopplArchVer"
-  implementation      "android.arch.lifecycle:reactivestreams:$archVer"
   annotationProcessor "android.arch.lifecycle:compiler:$archVer"
 
   testImplementation  "junit:junit:4.12"
@@ -316,7 +316,9 @@ In many cases, there is a 1:1 mapping between the `compile` statement
 and the corresponding `doppl` statement.
 
 The pair of `co.doppl.lib:androidbasetest` dependencies set up the framework
-to allow us to build and run our JUnit-based tests on iOS.
+to allow us to build and run our JUnit-based tests on iOS. The
+documentation on [testing with Doppl](https://github.com/doppllib/doppllib.github.io/blob/master/docs/Testing.md#tests-and-testdoppl)
+has more details on this setup.
 
 Now, allow Android Studio to sync the project with the Gradle build files, since
 Android Studio has been pestering you for the past few steps to go do that.
@@ -439,7 +441,7 @@ the build has actually completed.
 
 Then, repeat this process with the `iosTest.xcworkspace` file in the `iosTest/` project.
 
-## Step #11: Copy Some Files Into XCode
+## Step #11: Copy Generated Files Into XCode
 
 If you look at `app/build/j2objcSrcGenTest/`, you will find two files of note:
 
