@@ -285,6 +285,7 @@ dependencies {
   implementation      "io.reactivex.rxjava2:rxandroid:2.0.1"
   doppl               "co.doppl.io.reactivex.rxjava2:rxandroid:2.0.1.2"
 
+  implementation      "com.squareup.retrofit2:retrofit:$retroVer"
   implementation      "com.squareup.retrofit2:converter-gson:$retroVer"
   implementation      "com.squareup.retrofit2:adapter-rxjava2:$retroVer"
   doppl               "co.doppl.com.squareup.retrofit2.urlsession:retrofit:$dopplRetroVer"
