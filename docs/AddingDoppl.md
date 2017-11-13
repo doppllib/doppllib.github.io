@@ -148,7 +148,7 @@ edited &mdash; add the following line to the `dependencies` closure in the
 `buildscript` closure:
 
 ```groovy
-classpath 'co.doppl:gradle:0.9.0'
+classpath 'co.doppl:gradle:0.9.3'
 ```
 
 This should give you something like:
@@ -164,7 +164,7 @@ buildscript {
   }
   dependencies {
     classpath 'com.android.tools.build:gradle:3.0.0'
-    classpath 'co.doppl:gradle:0.9.0'
+    classpath 'co.doppl:gradle:0.9.3'
   }
 }
 
@@ -544,7 +544,20 @@ override func viewDidLoad() {
 
 ## Step #13: Run the iOS Tests
 
-TBD
+At this point, make sure that the Console area of Xcode is open:
+
+![Xcode Console](./AddingDoppl-13.png)
+
+If it is not, open it via View > Debug Area > Activate Console from the
+main menu.
+
+Then, if you click the Run button in Xcode, the IDE will build and
+run the test suite. The build process will take a while and give you several
+thousand warnings, most of which come from the way that J2ObjC generates the
+Objective-C code. When the tests are complete, the JUnit test runner will
+show the test results in the console, and you should see that all tests pass:
+
+![Xcode Console Transcript, Showing Test Output](./AddingDoppl-14.png)
 
 ## Step #14: Write the UI
 
