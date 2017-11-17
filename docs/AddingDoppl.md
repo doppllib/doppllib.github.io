@@ -278,7 +278,6 @@ dependencies {
     exclude group: 'com.android.support', module: 'support-media-compat'
   } // for https://issuetracker.google.com/issues/64909326
   implementation      "com.squareup.picasso:picasso:2.5.2"
-  implementation      "android.arch.lifecycle:reactivestreams:$archVer"
 
   implementation      "io.reactivex.rxjava2:rxjava:2.1.5"
   doppl               "co.doppl.io.reactivex.rxjava2:rxjava:2.1.5.0"
@@ -296,7 +295,6 @@ dependencies {
   doppl               "co.doppl.android.arch.lifecycle:runtime:$dopplArchVer"
   implementation      "android.arch.lifecycle:extensions:$archVer"
   doppl               "co.doppl.android.arch.lifecycle:extensions:$dopplArchVer"
-  annotationProcessor "android.arch.lifecycle:compiler:$archVer"
 
   testImplementation  "junit:junit:4.12"
   testImplementation  "co.doppl.lib:androidbasetest:0.8.5"
