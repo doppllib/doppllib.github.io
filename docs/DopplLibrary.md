@@ -342,7 +342,7 @@ code-completion for the rest of this tutorial.
 ## Step #10: Testing the Library
 
 In `serviceApi/build/j2objcSrcGenTest/`, you should find a `dopplTests.txt`
-file, as before (`here is no `prefix.properties` file, because we are not
+file, as before (There is no `prefix.properties` file, because we are not
 using `translatedPathPrefix`). Copy this file into your `iosServiceApiTest`
 workspace, by dragging it into the `iosServiceApiTest/` files to be a peer
 of `AppDelegate.swift` and `ViewController.swift`:
