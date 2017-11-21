@@ -21,4 +21,4 @@ share much of the rest of your application logic between the two platforms
 ## Diving Into Doppl
 
 - [Doppl Scope](./Scope)
-- Doppl-Ready Libraries &mdash; <i>coming soon!</i>
+- [Doppl-Ready Libraries](./Libraries)
