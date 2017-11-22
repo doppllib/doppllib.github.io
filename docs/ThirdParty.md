@@ -283,6 +283,16 @@ in the `test` source set, you will see that all come up with no errors. Prior
 to adding the `dependencies`, those Java source files would have been riddled
 with compile errors, for all of the missing dependencies.
 
+### Add a Pointless App Module
+
+Android Studio 3.0.1 [has a bug](https://issuetracker.google.com/issues/69669750)
+that prevents it from running unit tests of a Java module unless there is an
+`app` module also in the project.
+
+So, use File > New > New Module from the Android Studio main menu to add
+a "Phone & Tablet Module" to the project. Have the "Module name" be `app`, but
+the rest of the settings for this module do not seem to matter.
+
 ### Try the Tests
 
 Choose Run > Edit Configurations from the Android Studio main menu. Click
