@@ -557,9 +557,159 @@ show the test results in the console, and you should see that all tests pass:
 
 ![Xcode Console Transcript, Showing Test Output](./AddingDoppl-14.png)
 
-## Step #14: Write the UI
+## Step #14: Access the Generated Code From Swift
 
-TBD
+Most likely, your job is to ship an app with a user interface, not just
+a working test suite. For that, you will need to be able to access the
+generated code from your Swift files in `iosApp`, so that you can obtain
+the model data loaded from the network. From there, you can craft a UI to
+display that data.
+
+Here, we will focus on just getting you access to the model data via the
+view-model. Creating a suitable iOS UI that uses this data is left as an exercise
+for the reader.
+
+### `AppDelegate`
+
+In the `iosApp` project, click on `AppDelegate.swift` and
+
+- Add `import doppllib` to the list of imports
+- Add `DopplRuntime.start()` to `application()`
+
+This should give you something like this:
+
+```swift
+import UIKit
+import doppllib
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
+
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+        DopplRuntime.start()
+        return true
+    }
+
+    func applicationWillResignActive(_ application: UIApplication) {
+        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    }
+
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    }
+
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    }
+
+    func applicationWillTerminate(_ application: UIApplication) {
+        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+
+
+}
+```
+
+This is the same as what we did in the `iosTest` project.
+
+### ViewController
+
+Then, click on `ViewController.swift` and
+
+- Add `import doppllib` to the list of imports
+- Add the following to `viewDidLoad()`
+
+```swift
+let viewModel: CoDopplSoArchQuestionsViewModel = SOAQuestionsViewModel()
+viewModel.register__(with: self)
+```
+
+Now you have access to the `QuestionsViewModel` that was translated from Java.
+However, you should also get an error because `ViewController` does not
+implement the `SOAQuestionsViewModel_Host` protocol.
+
+- Implement `SOAQuestionsViewModel_Host` and the `setQuestionsWith()` method.
+
+In the end, you should have something that looks like this:
+
+```swift
+import UIKit
+import doppllib
+
+class ViewController: UIViewController, SOAQuestionsViewModel_Host {
+    
+    func setQuestionsWith(_ questions: JavaUtilList!) {
+        
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        let viewModel: CoDopplSoArchQuestionsViewModel = SOAQuestionsViewModel()
+        viewModel.register__(with: self)
+        
+    }
+}
+```
+
+When compiled, types used in Java generics are erased, so when translated to
+Objective-C we are left with a generic `JavaUtilList`. In order to use
+`questions` in a normal way, we would prefer to have an array of `SOAQuestion`
+(`[SOAQuestion]`). To do so, create a new file called `JavaUtils.swift` and
+paste the code below.
+
+```swift
+import Foundation
+import doppllib
+
+class JavaUtils {    
+    static func javaList(toList list: JavaUtilList) -> [Any] {
+        var array = [Any]()
+        for i in 0..<list.size() {
+            array.append(list.getWith(i))
+        }
+        return array
+    }
+}
+```
+
+To keep it generic, `javaList` returns an array of `Any`, that we will cast.
+Using this static function in the `setQuestionsWith()` method, we can retrieve
+the `SOAQuestion` array and set it to a variable. Your `ViewController` should
+look something like this now. 
+
+```swift
+import UIKit
+import doppllib
+
+class ViewController: UIViewController, SOAQuestionsViewModel_Host {
+    
+    private var questions = [SOAQuestion]()
+
+    func setQuestionsWith(_ questions: JavaUtilList!) {
+        self.questions = (JavaUtils.javaList(toList: questions) as? [SOAQuestion])!
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        let viewModel: CoDopplSoArchQuestionsViewModel = SOAQuestionsViewModel()
+        viewModel.register__(with: self)
+    }
+}
+```
 
 ## Addendum: Making Changes
 
