@@ -620,7 +620,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-This is the same as what we did in the `iosTest` project.
+This is the same basic process as what we did in the `iosTest` project, except
+there we use `testdopplib` instead of `doppllib`.
 
 ### ViewController
 
