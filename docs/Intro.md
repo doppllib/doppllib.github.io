@@ -22,4 +22,5 @@ share much of the rest of your application logic between the two platforms
 
 - [Doppl Scope](./Scope)
 - [Doppl-Ready Libraries](./Libraries)
+- [Making a Doppl Library](./DopplLibrary)
 - [Dealing with Doppl Challenges](./Challenges)
