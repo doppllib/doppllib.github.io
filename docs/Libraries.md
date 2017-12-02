@@ -2,6 +2,9 @@
 
 The Doppl team maintains Doppl conversions of some popular libraries:
 
+- [Doppl Android Extension Library](https://github.com/doppllib/core-doppl)
+
+
 - The [Android Architecture Components](https://github.com/doppllib/android-architecture-components)
 - [Dagger](https://github.com/doppllib/dagger)
 - [Google Gson](https://github.com/doppllib/gson)

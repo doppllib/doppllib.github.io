@@ -631,7 +631,7 @@ Then, click on `ViewController.swift` and
 - Add the following to `viewDidLoad()`
 
 ```swift
-let viewModel: CoDopplSoArchQuestionsViewModel = SOAQuestionsViewModel()
+let viewModel = SOAQuestionsViewModel()!
 viewModel.register__(with: self)
 ```
 
@@ -657,7 +657,7 @@ class ViewController: UIViewController, SOAQuestionsViewModel_Host {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let viewModel: CoDopplSoArchQuestionsViewModel = SOAQuestionsViewModel()
+        let viewModel = SOAQuestionsViewModel()!
         viewModel.register__(with: self)
         
     }
@@ -706,7 +706,7 @@ class ViewController: UIViewController, SOAQuestionsViewModel_Host {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let viewModel: CoDopplSoArchQuestionsViewModel = SOAQuestionsViewModel()
+        let viewModel = SOAQuestionsViewModel()!
         viewModel.register__(with: self)
     }
 }
