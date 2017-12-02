@@ -327,7 +327,7 @@ platform :ios, '9.0'
 
 target 'iosServiceApiTest' do
     use_frameworks!
-    pod 'doppllib', :path => '../service-api/build'
+    pod 'testdoppllib', :path => '../service-api/build'
 end
 ```
 
