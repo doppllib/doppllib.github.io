@@ -61,9 +61,13 @@ need to install [Cocoapods](https://cocoapods.org/), if you have not done so
 already for other reasons. Doppl generates a pair of pods from your Android
 app: one containing the main code, the other containing the test code.
 
+Aim to keep your Cocoapods version up to date. These instructions work with
+version 1.3.1.
+
 ## Step #1: Clone the Starter Android Project
 
-Clone or download the starter project &mdash; `SOAndroid` &mdash; from
+Clone or download the 1.0.2 tagged edition of the starter project
+&mdash; `SOAndroid` &mdash; from
 [its GitHub repository](https://github.com/doppllib/SOAndroid).
 
 You should be able to import this into Android Studio 3.0+ and run it on an
@@ -148,7 +152,7 @@ edited &mdash; add the following line to the `dependencies` closure in the
 `buildscript` closure:
 
 ```groovy
-classpath 'co.doppl:gradle:0.9.3'
+classpath 'co.doppl:gradle:0.10.5'
 ```
 
 This should give you something like:
@@ -163,8 +167,8 @@ buildscript {
     maven { url 'https://dl.bintray.com/doppllib/maven2' }
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:3.0.0'
-    classpath 'co.doppl:gradle:0.9.3'
+    classpath 'com.android.tools.build:gradle:3.0.1'
+    classpath 'co.doppl:gradle:0.10.5'
   }
 }
 
@@ -207,6 +211,8 @@ dopplConfig {
     include 'co/doppl/so/RepositoryTest.java'
   }
 
+  javaDebug true
+
   translatedPathPrefix 'co.doppl.so.api', 'SOAPI'
   translatedPathPrefix 'co.doppl.so.arch', 'SOA'
 
@@ -220,6 +226,11 @@ This tells Doppl to:
 
 - Convert the classes in our `co.doppl.so.api` and `co.doppl.so.arch` packages,
 along with the `co.doppl.so.RepositoryTest` class
+
+- Add details in the Objective-C code to tie it to the Java code that it came
+from, so when we use breakpoints in Xcode and step through our code, when
+we encounter converted Objective-C code, the debugger will show us stepping 
+through the Java code, as that is easier to read
 
 - When generating Objective-C files, use certain prefixes for the different
 Java package names
@@ -237,6 +248,13 @@ UI, and we will want to create a native iOS UI instead.
 For example, `translatedPathPrefix 'co.doppl', 'D'` would not match
 any classes, as there are no classes in this project *directly* in the
 `co.doppl` package.
+
+- The default `testIdentifier` will find any classes whose name ends in
+`Test.java` and assume that they represent unit tests. In this case,
+that happens to fit our situation (`RepositoryTest.java` ends in
+`Test.java`), and so the `testIdentifier` closure shown above is superfluous.
+It is there for illustration purposes, as for many projects, developers
+will have chosen other names for their test classes.
 
 ## Step #6: Define Doppl Dependencies
 
@@ -262,8 +280,8 @@ def retroVer = "2.3.0"
 Add these two to that block:
 
 ```groovy
-def dopplArchVer = "1.0.0.0-rc1"
-def dopplRetroVer = "2.3.0.7"
+def dopplArchVer = "1.0.0.2-rc1"
+def dopplRetroVer = "2.3.0.9"
 ```
 
 ### Add Some doppl Statements
@@ -280,9 +298,9 @@ dependencies {
   implementation      "com.squareup.picasso:picasso:2.5.2"
 
   implementation      "io.reactivex.rxjava2:rxjava:2.1.5"
-  doppl               "co.doppl.io.reactivex.rxjava2:rxjava:2.1.5.0"
+  doppl               "co.doppl.io.reactivex.rxjava2:rxjava:2.1.5.2"
   implementation      "io.reactivex.rxjava2:rxandroid:2.0.1"
-  doppl               "co.doppl.io.reactivex.rxjava2:rxandroid:2.0.1.2"
+  doppl               "co.doppl.io.reactivex.rxjava2:rxandroid:2.0.1.7"
 
   implementation      "com.squareup.retrofit2:retrofit:$retroVer"
   implementation      "com.squareup.retrofit2:converter-gson:$retroVer"
@@ -297,8 +315,11 @@ dependencies {
   doppl               "co.doppl.android.arch.lifecycle:extensions:$dopplArchVer"
 
   testImplementation  "junit:junit:4.12"
-  testImplementation  "co.doppl.lib:androidbasetest:0.8.5"
-  testDoppl           "co.doppl.lib:androidbasetest:0.8.5.0"
+  testDoppl           "co.doppl.junit:junit:4.12.0"
+  testImplementation  "org.mockito:mockito-core:1.9.5"
+  testDoppl           "co.doppl.org.mockito:mockito-core:1.9.5.0"
+  testImplementation  "co.doppl.lib:androidbasetest:0.8.8"
+  testDoppl           "co.doppl.lib:androidbasetest:0.8.8.0"
 }
 ```
 
@@ -314,7 +335,11 @@ helps us ensure that we have added all the necessary `doppl` statements.
 In many cases, there is a 1:1 mapping between the `compile` statement
 and the corresponding `doppl` statement.
 
-The pair of `co.doppl.lib:androidbasetest` dependencies set up the framework
+Similarly, we need to pull in JUnit and Mockito for our tests. That requires
+pairs of dependencies, with `testImplementation` for the dependency to use
+for native Java testing and `testDoppl` for the dependency to use on iOS.
+
+The pair of `co.doppl.lib:androidbasetest` dependencies provide the rest of the framework
 to allow us to build and run our JUnit-based tests on iOS. The
 documentation on [testing with Doppl](https://github.com/doppllib/doppllib.github.io/blob/master/docs/Testing.md#tests-and-testdoppl)
 has more details on this setup.
