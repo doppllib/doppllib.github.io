@@ -71,9 +71,10 @@ the repo, and from there, create a branch on which you will make your Doppl-rela
 changes. For some private library, you will need to decide how exactly you want to manage
 the Doppl conversion process with respect to branches, version numbering, etc.
 
-In this case, we will simply work in a scrap clone of the `SOLibrary` project,
-which you can get from
-[the `SOLibrary` starter project GitHub repository](https://github.com/doppllib/SOLibrary).
+In this case, we will simply work in a scrap clone of the `SOLibrary` project.
+Clone or download [the 1.0.2 tagged edition](https://github.com/doppllib/SOLibrary/tree/v1.0.2)
+of the starter project from
+[its GitHub repository](https://github.com/doppllib/SOLibrary).
 
 As with the `SOAndroid` tutorial,
 the first steps of this tutorial can be performed on any Android development
@@ -119,7 +120,7 @@ buildscript {
     maven { url 'https://dl.bintray.com/doppllib/maven2' }
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:3.0.0'
+    classpath 'com.android.tools.build:gradle:3.0.1'
   }
 }
 
@@ -146,7 +147,7 @@ In the `build.gradle` file in the project root, add the following line to the
 `dependencies` closure in the `buildscript` closure:
 
 ```groovy
-classpath 'co.doppl:gradle:0.9.3'
+classpath 'co.doppl:gradle:0.10.5'
 ```
 
 This should give you something like:
@@ -161,8 +162,8 @@ buildscript {
     maven { url 'https://dl.bintray.com/doppllib/maven2' }
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:3.0.0'
-    classpath 'co.doppl:gradle:0.9.3'
+    classpath 'com.android.tools.build:gradle:3.0.1'
+    classpath 'co.doppl:gradle:0.10.5'
   }
 }
 
@@ -197,6 +198,8 @@ dopplConfig {
     include 'co/doppl/so/**'
   }
 
+  javaDebug true
+
   testIdentifier {
     include 'co/doppl/so/RepositoryTest.java'
   }
@@ -221,8 +224,8 @@ First, add in the `dopplArchVer` and `dopplRetroVer` constants that we used in
 `SOAndroid`:
 
 ```groovy
-def dopplArchVer = "1.0.0.0-rc1"
-def dopplRetroVer = "2.3.0.7"
+def dopplArchVer = "1.0.0.2-rc1"
+def dopplRetroVer = "2.3.0.9"
 ```
 
 Then, replace the `dependencies` closure in `service-api/build.gradle` with the
@@ -235,9 +238,9 @@ dependencies {
   api                 "android.arch.lifecycle:extensions:$archVer"
   doppl               "co.doppl.android.arch.lifecycle:extensions:$dopplArchVer"
   implementation      "io.reactivex.rxjava2:rxjava:2.1.5"
-  doppl               "co.doppl.io.reactivex.rxjava2:rxjava:2.1.5.0"
+  doppl               "co.doppl.io.reactivex.rxjava2:rxjava:2.1.5.2"
   implementation      "io.reactivex.rxjava2:rxandroid:2.0.1"
-  doppl               "co.doppl.io.reactivex.rxjava2:rxandroid:2.0.1.2"
+  doppl               "co.doppl.io.reactivex.rxjava2:rxandroid:2.0.1.7"
   implementation      "com.squareup.retrofit2:retrofit:$retroVer"
   implementation      "com.squareup.retrofit2:converter-gson:$retroVer"
   implementation      "com.squareup.retrofit2:adapter-rxjava2:$retroVer"
@@ -246,8 +249,11 @@ dependencies {
   doppl               "co.doppl.com.squareup.retrofit2.urlsession:adapter-rxjava2:$dopplRetroVer"
 
   testImplementation  "junit:junit:4.12"
-  testImplementation  "co.doppl.lib:androidbasetest:0.8.5"
-  testDoppl           "co.doppl.lib:androidbasetest:0.8.5.0"
+  testDoppl           "co.doppl.junit:junit:4.12.0"
+  testImplementation  "org.mockito:mockito-core:1.9.5"
+  testDoppl           "co.doppl.org.mockito:mockito-core:1.9.5.0"
+  testImplementation  "co.doppl.lib:androidbasetest:0.8.8"
+  testDoppl           "co.doppl.lib:androidbasetest:0.8.8.0"
 }
 ```
 
