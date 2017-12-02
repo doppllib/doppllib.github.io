@@ -48,30 +48,31 @@ dopplConfig {
 ### Tests and testDoppl
 
 Android unit tests employ JUnit, and so your `dependencies` will have a
-`testImplementation` (or the older `testCompile`) statement to pull in JUnit.
-In addition, you can use Mockito, and Doppl provides some support for Robolectric,
-specifically for tests needing a `Context`, such as for testing database access.
-Hence, you can have `testCompile` statements to pull in those dependencies as well.
+`testImplementation` (or the older `testCompile`) statement to pull in JUnit,
+plus a `testDoppl` statement to pull in its Doppl equivalent.
+In addition, you can use Mockito. Hence, you can have `testImplementation` and
+`testDoppl` statements to pull in those dependencies as well.
 
 Beyond that, to use Doppl for testing, typically you will want to pull in both the regular
 and the Doppl edition of `co.doppl.lib:androidbasetest` dependencies:
 
 ```groovy
 dependencies {
-    implementation      "com.android.support.constraint:constraint-layout:1.0.2"
-    testImplementation  "junit:junit:4.12"
-    testImplementation  "co.doppl.lib:androidbasetest:0.8.5"
-    testDoppl           "co.doppl.lib:androidbasetest:0.8.5.0"
-    testImplementation  "org.robolectric:robolectric:3.3.2"
-    testImplementation  "org.mockito:mockito-core:1.9.5"
+  // other really cool dependencies go here
+
+  testImplementation  "junit:junit:4.12"
+  testDoppl           "co.doppl.junit:junit:4.12.0"
+  testImplementation  "org.mockito:mockito-core:1.9.5"
+  testDoppl           "co.doppl.org.mockito:mockito-core:1.9.5.0"
+  testImplementation  "co.doppl.lib:androidbasetest:0.8.8"
+  testDoppl           "co.doppl.lib:androidbasetest:0.8.8.0"
 }
 ```
 
-These provide utility code for running Doppl-specific tests, as we will see
-later in this document. Note that the `testImplementation` will pull in a
-three-digit semantic version (e.g., `0.8.5`), while `testDoppl` will pull in a
-four-digit semantic version (e.g., `0.8.5.0`) &mdash; if you mix these up, you
-will get strange results.
+The `androidbasetest` dependencies provide utility code for running
+Doppl-specific tests, as we will see later in this document. Also, the
+Doppl edition of that artifact provides a way to access a `Context` in 
+your unit tests, both on Android and iOS, as we will see later in this document.
 
 ## Writing Basic Tests
 
