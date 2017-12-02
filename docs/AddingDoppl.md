@@ -66,7 +66,8 @@ version 1.3.1.
 
 ## Step #1: Clone the Starter Android Project
 
-Clone or download the 1.0.2 tagged edition of the starter project
+Clone or download [the 1.0.2 tagged edition](https://github.com/doppllib/SOAndroid/tree/v1.0.2)
+of the starter project
 &mdash; `SOAndroid` &mdash; from
 [its GitHub repository](https://github.com/doppllib/SOAndroid).
 
