@@ -466,7 +466,7 @@ the build has actually completed.
 
 Then, repeat this process with the `iosTest.xcworkspace` file in the `iosTest/` project.
 
-## Step #11: Copy Generated Files Into XCode
+## Step #11: Copy Generated Test Files Into XCode
 
 If you look at `app/build/j2objcSrcGenTest/`, you will find two files of note:
 
@@ -583,7 +583,18 @@ show the test results in the console, and you should see that all tests pass:
 
 ![Xcode Console Transcript, Showing Test Output](./AddingDoppl-14.png)
 
-## Step #14: Access the Generated Code From Swift
+## Step #14: Copy Generated App File Into XCode
+
+If you look at `app/build/j2objcSrcGenMain/`, you will find a
+`prefix.properties`, akin to the one that we had in `app/build/j2objcSrcGenTest/`
+from Step #11 above.
+
+Copy that into your `iosApp/` workspace, to have it be alongside your other
+files in `iosApp/` (e.g., peers of `AppDelegate.swift` and
+`ViewController.swift`), much as we did back in Step #11. However, this time,
+we are only copying this one file, as there is no `dopplTests.txt` file.
+
+## Step #15: Access the Generated Code From Swift
 
 Most likely, your job is to ship an app with a user interface, not just
 a working test suite. For that, you will need to be able to access the
