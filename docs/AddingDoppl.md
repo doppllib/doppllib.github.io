@@ -423,6 +423,8 @@ in the previous step:
 ```ruby
 platform :ios, '9.0'
 
+install! 'cocoapods', :deterministic_uuids => false
+
 target 'iosApp' do
     use_frameworks!
     pod 'doppllib', :path => '../app/build'
@@ -439,6 +441,8 @@ is `iosTest`:
 
 ```ruby
 platform :ios, '9.0'
+
+install! 'cocoapods', :deterministic_uuids => false
 
 target 'iosTest' do
     use_frameworks!
