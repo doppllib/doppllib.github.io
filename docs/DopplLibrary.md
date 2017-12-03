@@ -325,6 +325,8 @@ directory:
 ```ruby
 platform :ios, '9.0'
 
+install! 'cocoapods', :deterministic_uuids => false
+
 target 'iosServiceApiTest' do
     use_frameworks!
     pod 'testdoppllib', :path => '../service-api/build'
