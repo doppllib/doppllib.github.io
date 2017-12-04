@@ -206,6 +206,10 @@ dopplConfig {
   testIdentifier {
     include 'co/doppl/so/RepositoryTest.java'
   }
+
+  testFramework {
+    managePod "../iosServiceApiTest"
+  }
 }
 ```
 
@@ -215,6 +219,9 @@ This is very similar to the one from the `SOAndroid` sample. The differences are
 `include` statement in the `translatePattern` closure to declare them all
 
 - `translatedPathPrefix` does not work with libraries, and so we can skip those
+
+- We will only have a test pod, and so we only need the `testFramework`
+closure, not the `mainFramework` closure
 
 ## Step #7: Define Doppl Dependencies
 
@@ -263,20 +270,7 @@ dependencies {
 As before, we set up `doppl` equivalents for everything that we had been using
 for Android, plus add some Doppl dependencies specific for our unit tests.
 
-## Step #8: Perform the Doppl Conversion
-
-Next, open the Gradle tool in Android Studio, and in the `:service-api` set of
-`doppl` tasks, run `dopplBuild`:
-
-![`dopplBuild` Task in Android Studio](./DopplLibrary-1.png)
-
-As before, this will convert your Java into Objective-C and package them into
-pods for easy use from iOS projects in Xcode. And, for this sample project,
-everything should build cleanly:
-
-![Results of `dopplBuild` Task in Android Studio](./DopplLibrary-2.png)
-
-## Step #9: Create the Library Test Project
+## Step #8: Create the Library Test Project
 
 You now need to create an Xcode project for the tests. As before, these can
 reside anywhere, but it is a bit simpler if they
@@ -316,7 +310,7 @@ Xcode project window.
 
 ![Xcode Project for iosServiceApiTest](./DopplLibrary-4.png)
 
-## Step #9: Build and Add the Library Test Pod
+## Step #9: Define Library Test Podfile
 
 As before, we need to create a `Podfile` for our pod, in the `iosServiceApiTest/`
 directory:
@@ -338,15 +332,25 @@ The differences are:
 
 - Our `path` points to the `service-api/build/` directory
 
-Then, from the `iosServiceApiTest/` directory, run `pod install` to set up the
-pod and create the workspace for us to use.
+## Step #10: Perform the Doppl Conversion
 
-Double-click on the `iosServiceApiTest.xcworkspace` file in your
+Next, open the Gradle tool in Android Studio, and in the `:service-api` set of
+`doppl` tasks, run `dopplBuild`:
+
+![`dopplBuild` Task in Android Studio](./DopplLibrary-1.png)
+
+As before, this will convert your Java into Objective-C and package them into
+pods for easy use from iOS projects in Xcode. And, for this sample project,
+everything should build cleanly:
+
+![Results of `dopplBuild` Task in Android Studio](./DopplLibrary-2.png)
+
+Then, double-click on the `iosServiceApiTest.xcworkspace` file in your
 `iosServiceApiTest/` project or otherwise arrange to open it in Xcode. Once
 there, run the project, to confirm that we have no build errors and to set up
 code-completion for the rest of this tutorial.
 
-## Step #10: Testing the Library
+## Step #11: Testing the Library
 
 In `serviceApi/build/j2objcSrcGenTest/`, you should find a `dopplTests.txt`
 file, as before (There is no `prefix.properties` file, because we are not
@@ -372,7 +376,7 @@ Then, we need to modify `ViewController.swift` as before:
 At this point, you should be able to run the project in Xcode and see that
 our one test succeeds.
 
-## Step #11: Publish the Artifact
+## Step #12: Publish the Artifact
 
 The artifact representing our converted library is a `.dop` file. We need to
 publish this artifact somewhere for our iOS app to pick it up. For simplicity,

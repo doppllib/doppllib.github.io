@@ -220,6 +220,14 @@ dopplConfig {
   testIdentifier {
     include 'co/doppl/so/RepositoryTest.java'
   }
+
+  mainFramework {
+    managePod "../iosApp"
+  }
+
+  testFramework {
+    managePod "../iosTest"
+  }
 }
 ```
 
@@ -239,6 +247,9 @@ Java package names
 - Mark the `co.doppl.so.RepositoryTest` class as being a unit test class
 that should be in the test output, not the production output, from the Doppl
 conversion process
+
+- Integrate with Cocoapods for managing two pods, one each for our production
+code and for our test code
 
 Some notes about this:
 
@@ -348,24 +359,7 @@ has more details on this setup.
 Now, allow Android Studio to sync the project with the Gradle build files, since
 Android Studio has been pestering you for the past few steps to go do that.
 
-## Step #7: Generate the Pods
-
-Now, you can run the `dopplBuild` Gradle task.
-
-From inside of Android Studio, you will find the `dopplBuild` task in the
-Gradle tool, in the `doppl` category under the project root:
-
-![Gradle Tool, Showing dopplBuild Task](./AddingDoppl-2.png)
-
-Double-click on that entry to run the task:
-
-![Android Studio, Showing dopplBuild Output](./AddingDoppl-3.png)
-
-If you prefer, run the `dopplBuild` task from the command line, from the
-project root directory, using `gradle` (if you have a compatible version
-of Gradle installed) or `./gradlew` (if you prefer to use the Gradle Wrapper).
-
-## Step #8: Create the Xcode Projects
+## Step #7: Create the Xcode Projects
 
 You now need to create *two* Xcode projects: one for the app, and one for
 the tests. Technically, these can reside anywhere, but it is a bit simpler if they
@@ -410,7 +404,7 @@ Then, repeat these steps, but using `iosTest` instead of `iosApp` as the product
 name. You can use File > New > Project... from the main menu to start creating the
 `iosTest` project.
 
-## Step #9: Add the Pod to the Projects
+## Step #8: Define the Podfiles
 
 Open up your favorite text editor. Then, take the following content and put
 it in a file named `Podfile` in the `iosApp/` directory that you created
@@ -446,13 +440,22 @@ target 'iosTest' do
 end
 ```
 
-Open up a command prompt on your iOS development machine (Terminal, iTerm2,
-etc.). Navigate to the `iosApp/` directory, and run `pod install`. This will
-take what Doppl generated and set it up as a pod for use in this Xcode project.
-Then, switch to the `iosTest/` directory and run `pod install` there. Each
-should give you output akin to the following:
+## Step #9: Generate the Pods
 
-![Output of pod install Command](./AddingDoppl-8.png)
+Now, you can run the `dopplBuild` Gradle task.
+
+From inside of Android Studio, you will find the `dopplBuild` task in the
+Gradle tool, in the `doppl` category under the project root:
+
+![Gradle Tool, Showing dopplBuild Task](./AddingDoppl-2.png)
+
+Double-click on that entry to run the task:
+
+![Android Studio, Showing dopplBuild Output](./AddingDoppl-3.png)
+
+If you prefer, run the `dopplBuild` task from the command line, from the
+project root directory, using `gradle` (if you have a compatible version
+of Gradle installed) or `./gradlew` (if you prefer to use the Gradle Wrapper).
 
 ## Step #10: Build the Pods
 
