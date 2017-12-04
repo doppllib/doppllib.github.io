@@ -21,6 +21,9 @@ This tutorial is designed around Android Studio 3.0 and Xcode 9. Ideally, you ar
 working with those versions of those IDEs. If not, you may need to slightly
 adapt the instructions to fit your particular IDE versions.
 
+This tutorial also assumes that you are doing all of your development work
+on macOS. 
+
 ### Download the Doppl Runtime
 
 Visit [the download page](http://doppl.co/download.html) and download the latest
@@ -30,9 +33,6 @@ accordingly.
 Then, unZIP its contents into some new directory somewhere on your development
 machine. The exact location does not matter, but you will need to enter its
 path into a couple of spots (e.g., a `local.properties`) file.
-
-Note that if you are using different machines for Android development and iOS
-development, *both* machines need the Doppl runtime.
 
 ### Configure Xcode for Doppl
 
@@ -364,10 +364,6 @@ Double-click on that entry to run the task:
 If you prefer, run the `dopplBuild` task from the command line, from the
 project root directory, using `gradle` (if you have a compatible version
 of Gradle installed) or `./gradlew` (if you prefer to use the Gradle Wrapper).
-
-At this point, if you have been doing this work on a machine that is not
-your iOS development machine, transfer the project &mdash; including the `build/`
-directory &mdash; over to that iOS development machine.
 
 ## Step #8: Create the Xcode Projects
 

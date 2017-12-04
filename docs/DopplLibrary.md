@@ -19,6 +19,9 @@ Make sure that you have gone through the [tutorial for adding Doppl to an app](.
 Not only do you need the experience of having added Doppl to an existing app,
 but this will ensure that you have the Doppl toolchain set up.
 
+This tutorial also assumes that you are doing all of your development work
+on macOS. 
+
 ## About the Revised Project
 
 Another reason for going through the [tutorial for adding Doppl to an app](./AddingDoppl)
@@ -272,10 +275,6 @@ pods for easy use from iOS projects in Xcode. And, for this sample project,
 everything should build cleanly:
 
 ![Results of `dopplBuild` Task in Android Studio](./DopplLibrary-2.png)
-
-The following steps will need to be performed on a macOS machine set up
-for iOS development. If you were doing the preceding steps on some other
-machine, transfer your project over to the macOS machine now.
 
 ## Step #9: Create the Library Test Project
 
