@@ -169,6 +169,16 @@ When you are ready to return to running your entire test suite, remove
 (or comment out) the `runSpecificWithNSString()` call and uncomment the
 `runResource()` call.
 
+## macOS Requirements
+
+iOS development is done almost exclusively on macOS, as that is the only platform for
+which Apple provides development tools. As a result, Doppl itself is optimized
+for use on macOS. Ideally, everybody involved in Doppl-enabled app development
+is using macOS, and ideally you are using a CI server that supports macOS.
+
+If you wish to try to work on Doppl-based apps using something other than macOS
+for development or CI, [ask for advice](./Support).
+
 ## Library-Specific Concerns
 
 Converting libraries to work with Doppl &mdash; particularly third-party
