@@ -234,22 +234,22 @@ dopplConfig {
 This tells Doppl to:
 
 - Convert the classes in our `co.doppl.so.api` and `co.doppl.so.arch` packages,
-along with the `co.doppl.so.RepositoryTest` class
+along with the `co.doppl.so.RepositoryTest` class.
 
-- Add details in the Objective-C code to tie it to the Java code that it came
-from, so when we use breakpoints in Xcode and step through our code, when
+- Add line directives in the Objective-C code to tie it to the Java code that it came
+from. This way, when we use breakpoints in Xcode and step through our code, and when
 we encounter converted Objective-C code, the debugger will show us stepping 
-through the Java code, as that is easier to read
+through the Java code, as that is easier to read.
 
 - When generating Objective-C files, use certain prefixes for the different
-Java package names
+Java package names.
 
 - Mark the `co.doppl.so.RepositoryTest` class as being a unit test class
 that should be in the test output, not the production output, from the Doppl
-conversion process
+conversion process.
 
 - Integrate with Cocoapods for managing two pods, one each for our production
-code and for our test code
+code and for our test code.
 
 Some notes about this:
 
