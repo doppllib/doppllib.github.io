@@ -33,6 +33,14 @@ Not at the present time, sorry.
 Obviously, Kotlin will be of keen interest going forward, and we are investigating
 options for it.
 
+## Nothing Seems to Build &mdash; How Can I Recover?
+
+The basic "reset the world" recipe for a Doppl-enabled project is:
+
+- Run the `clean` and `dopplBuild` Gradle tasks
+- Re-run `pod install` for your Xcode projects
+- In each Xcode workspace, choose Product > Clean from the main menu
+
 ## Where Did the Name "Doppl" Come From?
 
 Doppl is short for [doppelgänger](https://en.wikipedia.org/wiki/Doppelg%C3%A4nger),
