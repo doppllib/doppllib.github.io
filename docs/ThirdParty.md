@@ -325,7 +325,7 @@ First, we need to do some of the basics from previous tutorials:
 - Add `j2objc.home` to `local.properties`
 
 - Modify the project-level `build.gradle` to have `maven { url 'https://dl.bintray.com/doppllib/maven2' }`
-in both `repositories` closures and have `classpath 'co.doppl:gradle:0.9.3'`
+in both `repositories` closures and have `classpath 'co.doppl:gradle:0.10.7'`
 in the `dependencies` closure (alongside the existing Android Plugin for Gradle
 statement)
 
@@ -364,6 +364,11 @@ dopplConfig {
 }
 ```
 
+Note that we skip `javaDebug true` here. If you feel that you would need to
+perhaps step through Tape code, you could enable `javaDebug`. Typically, we do
+not need to step through third-party code, and adding `javaDebug` does add a
+bit of overhead to the build process.
+
 In terms of dependencies, we have no production dependencies, but we do have
 four test dependencies:
 
@@ -381,12 +386,17 @@ that `junit:junit` dependency statement with:
 
 ```groovy
   testImplementation  "junit:junit:4.12"
-  testImplementation  "co.doppl.lib:androidbasetest:0.8.5"
-  testDoppl           "co.doppl.lib:androidbasetest:0.8.5.0"
+  testDoppl           "co.doppl.junit:junit:4.12.0"
+  testImplementation  "co.doppl.lib:androidbasetest:0.8.8"
+  testDoppl           "co.doppl.lib:androidbasetest:0.8.8.0"
 ```
 
-Also, as is turns out, Mockito 1.9.5 is part of the J2objc tooling that underlies
-Doppl. As a result, we do not need to do anything about that dependency.
+Similarly, the `org.mockito:mockito` dependency would turn into:
+
+```groovy
+  testImplementation  "org.mockito:mockito-core:1.9.5"
+  testDoppl           "co.doppl.org.mockito:mockito-core:1.9.5.0"
+```
 
 The other two dependencies are not among those listed in
 [the roster of supported Doppl libraries](./Libraries). That means we have
@@ -413,9 +423,11 @@ sourceCompatibility = JavaVersion.VERSION_1_7
 
 dependencies {
   testImplementation  "junit:junit:4.12"
+  testDoppl           "co.doppl.junit:junit:4.12.0"
   testImplementation  "org.mockito:mockito-core:1.9.5"
-  testImplementation  "co.doppl.lib:androidbasetest:0.8.5"
-  testDoppl           "co.doppl.lib:androidbasetest:0.8.5.0"
+  testDoppl           "co.doppl.org.mockito:mockito-core:1.9.5.0"
+  testImplementation  "co.doppl.lib:androidbasetest:0.8.8"
+  testDoppl           "co.doppl.lib:androidbasetest:0.8.8.0"
 }
 
 dopplConfig {
@@ -551,9 +563,6 @@ assertContainsOnly(data, (byte) 0x00);
 After these changes, your tests should run once again, but this time without
 the extra test dependencies.
 
-At this point, you can run the `dopplBuild` Gradle task, which should also run
-cleanly and create your pods.
-
 ## Step #6: Test on iOS
 
 At this point, you can get the tests running on iOS following the same recipe
@@ -564,13 +573,26 @@ as outlined in the previous tutorials:
 
 - Create a `Podfile` in the Xcode project directory, where the `target` value
 is the name of the project (`iosTest`) and the `:path` points to
-`../tape/build`
+`../tape`
+
+```ruby
+platform :ios, '9.0'
+
+install! 'cocoapods', :deterministic_uuids => false
+
+target 'iosTest' do
+    use_frameworks!
+    pod 'testdoppllib', :path => '../tape'
+end
+```
+
+- Run the `dopplBuild` Gradle task, which should run cleanly and create your pods
 
 - Run `pod install` in the `iosTest/` directory
 
 - Open the Xcode workspace file created by `pod install` and run it
 
-- Copy the `dopplTests.txt` file out of `tape/build/j2objcSrcGenTest/` into
+- Copy the `dopplTests.txt` file out of `tape/build/` into
 the `iosTest` folder in Xcode
 
 - Add the `import testdoppllib` and `DopplRuntime.start()` statements to
