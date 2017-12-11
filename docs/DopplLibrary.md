@@ -80,8 +80,8 @@ of the starter project from
 [its GitHub repository](https://github.com/doppllib/SOLibrary).
 
 As with the `SOAndroid` tutorial,
-the first steps of this tutorial can be performed on any Android development
-machine. Later steps will require a macOS development machine, though.
+this tutorial also assumes that you are doing all of your development work
+on macOS. 
 
 ## Step #3: Add local.properties
 
