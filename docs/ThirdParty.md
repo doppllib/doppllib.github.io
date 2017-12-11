@@ -305,7 +305,7 @@ the green + toolbar button in the "Run/Debug Configurations" dialog, and choose
 |Test kind         |All in package
 |Package           |`com.squareup.tape`
 |Search for tests  |In single module
-|Use classpath of module|tape
+|Use classpath of module|`tape`
 
 The remaining items can either be left at their defaults or set to whatever
 is needed for your development environment.
