@@ -418,8 +418,8 @@ dependencies plus Mockito, but eliminate the others. That should give you a
 apply plugin: 'java'
 apply plugin: 'co.doppl.gradle'
 
-targetCompatibility = JavaVersion.VERSION_1_7
-sourceCompatibility = JavaVersion.VERSION_1_7
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 dependencies {
   testImplementation  "junit:junit:4.12"
