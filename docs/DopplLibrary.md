@@ -206,10 +206,6 @@ dopplConfig {
   testIdentifier {
     include 'co/doppl/so/RepositoryTest.java'
   }
-
-  testFramework {
-    managePod "../iosServiceApiTest"
-  }
 }
 ```
 
@@ -218,10 +214,7 @@ This is very similar to the one from the `SOAndroid` sample. The differences are
 - All classes in this module are to be translated, so we can use a single
 `include` statement in the `translatePattern` closure to declare them all
 
-- `translatedPathPrefix` does not work with libraries, and so we can skip those
-
-- We will only have a test pod, and so we only need the `testFramework`
-closure, not the `mainFramework` closure
+- `translatedPathPrefix` does not work with libraries, so we can skip those
 
 ## Step #7: Define Doppl Dependencies
 
@@ -344,6 +337,10 @@ pods for easy use from iOS projects in Xcode. And, for this sample project,
 everything should build cleanly:
 
 ![Results of `dopplBuild` Task in Android Studio](./DopplLibrary-2.png)
+
+When that is completed, in a terminal window, navigate to the `iosServiceApiTest/`
+directory and run `pod install`. This will complete the process of creating
+the pods for this workspace.
 
 Then, double-click on the `iosServiceApiTest.xcworkspace` file in your
 `iosServiceApiTest/` project or otherwise arrange to open it in Xcode. Once

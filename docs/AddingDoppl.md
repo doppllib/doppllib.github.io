@@ -220,14 +220,6 @@ dopplConfig {
   testIdentifier {
     include 'co/doppl/so/RepositoryTest.java'
   }
-
-  mainFramework {
-    managePod "../iosApp"
-  }
-
-  testFramework {
-    managePod "../iosTest"
-  }
 }
 ```
 
@@ -247,9 +239,6 @@ Java package names.
 - Mark the `co.doppl.so.RepositoryTest` class as being a unit test class
 that should be in the test output, not the production output, from the Doppl
 conversion process.
-
-- Integrate with Cocoapods for managing two pods, one each for our production
-code and for our test code.
 
 Some notes about this:
 
@@ -457,6 +446,11 @@ If you prefer, run the `dopplBuild` task from the command line, from the
 project root directory, using `gradle` (if you have a compatible version
 of Gradle installed) or `./gradlew` (if you prefer to use the Gradle Wrapper).
 
+When that is completed, in a terminal window, navigate to the `iosApp/`
+directory and run `pod install`. This will complete the process of creating
+the pods for this workspace. Then, navigate to the `iosTest/` directory
+and run `pod install` there as well.
+
 ## Step #10: Build the Pods
 
 Double-click on the `iosApp.xcworkspace` file in your `iosApp/` project or otherwise
@@ -491,8 +485,6 @@ your other files in `iosTest/` (e.g., peers of `AppDelegate.swift` and
 
 When you drag the files from the Finder into Xcode, a popup will appear for
 you to configure the copy operation:
-
-TODO update screenshot?
 
 ![Xcode File Copy Form](./AddingDoppl-11.png)
 
