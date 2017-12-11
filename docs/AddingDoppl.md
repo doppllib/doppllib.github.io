@@ -77,6 +77,9 @@ Android device or emulator that has Internet access. It will show the latest
 
 ![That's SO Android, As Viewed on Android](./AddingDoppl-1.png)
 
+It also has a unit test with a single test case, to confirm that we can
+successfully retrieve data from the Stack Exchange API.
+
 ## Step #2: Add local.properties
 
 If you imported the starter project into Android Studio, you should see
@@ -472,8 +475,6 @@ If you look at `app/build/`, you will find two files of note:
 
 - `prefix.properties`, which lists the items we defined in `translatePathPrefix`
 statements in `dopplConfig`
-
-TODO update screenshot
 
 ![macOS Finder, Showing Files to Add](./AddingDoppl-9.png)
 
