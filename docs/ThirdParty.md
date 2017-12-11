@@ -502,14 +502,14 @@ where the static import of `assertThat()` is not being used (line #277):
 Assertions.assertThat(queueFile.size()).isEqualTo(2);
 ```
 
-Replace that with:
+Replace the `Assertions.assertThat()` line shown above with:
 
 ```java
-assertThat(queueFile.size()).isEqualTo(2);
+assertEquals(queueFile.size(), 2);
 ```
 
-to use the static import, and now you can remove the
-`import org.fest.assertions.Assertions;` line that is failing.
+Then, you can remove the import for `org.fest.assertions.Assertions`, as it is
+unused.
 
 All the remaining errors come from uses of `assertThat()`. These need to be
 replaced with native JUnit equivalents:
@@ -522,6 +522,9 @@ replaced with native JUnit equivalents:
 |`assertThat(...).hasMessage(...)`|`assertEquals(..., ...)`
 |`assertThat(...).isEqualTo(...)`|`assertEquals(..., ...)`
 |`assertThat(...).isEqualTo(...).as("msg")`|`assertEquals("msg", ..., ...)`
+
+These will require further `static` imports, for `assertArrayEquals()`, `assertTrue()`,
+`assertNull()`, and `assertEquals()`.
 
 There is an `assertThat().hasMessage()` statement (line #141):
 
@@ -560,6 +563,9 @@ Then, convert those two error lines to:
 assertContainsOnly(data, (byte) 0x00);
 ```
 
+Finally, remove the import for `org.fest.assertions.Assertions.assertThat`, as
+it is unused.
+
 After these changes, your tests should run once again, but this time without
 the extra test dependencies.
 
@@ -586,7 +592,8 @@ target 'iosTest' do
 end
 ```
 
-- Run the `dopplBuild` Gradle task, which should run cleanly and create your pods
+- Run the `dopplBuild` Gradle task for the `:tape` module,
+which should run cleanly and create your pods
 
 - Run `pod install` in the `iosTest/` directory
 
