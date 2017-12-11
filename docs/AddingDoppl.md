@@ -21,6 +21,9 @@ This tutorial is designed around Android Studio 3.0 and Xcode 9. Ideally, you ar
 working with those versions of those IDEs. If not, you may need to slightly
 adapt the instructions to fit your particular IDE versions.
 
+This tutorial also assumes that you are doing all of your development work
+on macOS. 
+
 ### Download the Doppl Runtime
 
 Visit [the download page](http://doppl.co/download.html) and download the latest
@@ -30,9 +33,6 @@ accordingly.
 Then, unZIP its contents into some new directory somewhere on your development
 machine. The exact location does not matter, but you will need to enter its
 path into a couple of spots (e.g., a `local.properties`) file.
-
-Note that if you are using different machines for Android development and iOS
-development, *both* machines need the Doppl runtime.
 
 ### Configure Xcode for Doppl
 
@@ -61,9 +61,14 @@ need to install [Cocoapods](https://cocoapods.org/), if you have not done so
 already for other reasons. Doppl generates a pair of pods from your Android
 app: one containing the main code, the other containing the test code.
 
+Aim to keep your Cocoapods version up to date. These instructions work with
+version 1.3.1.
+
 ## Step #1: Clone the Starter Android Project
 
-Clone or download the starter project &mdash; `SOAndroid` &mdash; from
+Clone or download [the 1.0.2 tagged edition](https://github.com/doppllib/SOAndroid/tree/v1.0.2)
+of the starter project
+&mdash; `SOAndroid` &mdash; from
 [its GitHub repository](https://github.com/doppllib/SOAndroid).
 
 You should be able to import this into Android Studio 3.0+ and run it on an
@@ -71,6 +76,9 @@ Android device or emulator that has Internet access. It will show the latest
 15 questions from the `android` tag on Stack Overflow:
 
 ![That's SO Android, As Viewed on Android](./AddingDoppl-1.png)
+
+It also has a unit test with a single test case, to confirm that we can
+successfully retrieve data from the Stack Exchange API.
 
 ## Step #2: Add local.properties
 
@@ -117,7 +125,7 @@ buildscript {
     maven { url 'https://dl.bintray.com/doppllib/maven2' }
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:3.0.0'
+    classpath 'com.android.tools.build:gradle:3.0.1'
   }
 }
 
@@ -148,7 +156,7 @@ edited &mdash; add the following line to the `dependencies` closure in the
 `buildscript` closure:
 
 ```groovy
-classpath 'co.doppl:gradle:0.9.3'
+classpath 'co.doppl:gradle:0.10.7'
 ```
 
 This should give you something like:
@@ -163,8 +171,8 @@ buildscript {
     maven { url 'https://dl.bintray.com/doppllib/maven2' }
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:3.0.0'
-    classpath 'co.doppl:gradle:0.9.3'
+    classpath 'com.android.tools.build:gradle:3.0.1'
+    classpath 'co.doppl:gradle:0.10.7'
   }
 }
 
@@ -207,6 +215,8 @@ dopplConfig {
     include 'co/doppl/so/RepositoryTest.java'
   }
 
+  javaDebug true
+
   translatedPathPrefix 'co.doppl.so.api', 'SOAPI'
   translatedPathPrefix 'co.doppl.so.arch', 'SOA'
 
@@ -219,14 +229,19 @@ dopplConfig {
 This tells Doppl to:
 
 - Convert the classes in our `co.doppl.so.api` and `co.doppl.so.arch` packages,
-along with the `co.doppl.so.RepositoryTest` class
+along with the `co.doppl.so.RepositoryTest` class.
+
+- Add line directives in the Objective-C code to tie it to the Java code that it came
+from. This way, when we use breakpoints in Xcode and step through our code, and when
+we encounter converted Objective-C code, the debugger will show us stepping 
+through the Java code, as that is easier to read.
 
 - When generating Objective-C files, use certain prefixes for the different
-Java package names
+Java package names.
 
 - Mark the `co.doppl.so.RepositoryTest` class as being a unit test class
 that should be in the test output, not the production output, from the Doppl
-conversion process
+conversion process.
 
 Some notes about this:
 
@@ -237,6 +252,13 @@ UI, and we will want to create a native iOS UI instead.
 For example, `translatedPathPrefix 'co.doppl', 'D'` would not match
 any classes, as there are no classes in this project *directly* in the
 `co.doppl` package.
+
+- The default `testIdentifier` will find any classes whose name ends in
+`Test.java` and assume that they represent unit tests. In this case,
+that happens to fit our situation (`RepositoryTest.java` ends in
+`Test.java`), and so the `testIdentifier` closure shown above is superfluous.
+It is there for illustration purposes, as for many projects, developers
+will have chosen other names for their test classes.
 
 ## Step #6: Define Doppl Dependencies
 
@@ -262,8 +284,8 @@ def retroVer = "2.3.0"
 Add these two to that block:
 
 ```groovy
-def dopplArchVer = "1.0.0.0-rc1"
-def dopplRetroVer = "2.3.0.7"
+def dopplArchVer = "1.0.0.2-rc1"
+def dopplRetroVer = "2.3.0.10"
 ```
 
 ### Add Some doppl Statements
@@ -280,9 +302,9 @@ dependencies {
   implementation      "com.squareup.picasso:picasso:2.5.2"
 
   implementation      "io.reactivex.rxjava2:rxjava:2.1.5"
-  doppl               "co.doppl.io.reactivex.rxjava2:rxjava:2.1.5.0"
+  doppl               "co.doppl.io.reactivex.rxjava2:rxjava:2.1.5.2"
   implementation      "io.reactivex.rxjava2:rxandroid:2.0.1"
-  doppl               "co.doppl.io.reactivex.rxjava2:rxandroid:2.0.1.2"
+  doppl               "co.doppl.io.reactivex.rxjava2:rxandroid:2.0.1.7"
 
   implementation      "com.squareup.retrofit2:retrofit:$retroVer"
   implementation      "com.squareup.retrofit2:converter-gson:$retroVer"
@@ -297,8 +319,11 @@ dependencies {
   doppl               "co.doppl.android.arch.lifecycle:extensions:$dopplArchVer"
 
   testImplementation  "junit:junit:4.12"
-  testImplementation  "co.doppl.lib:androidbasetest:0.8.5"
-  testDoppl           "co.doppl.lib:androidbasetest:0.8.5.0"
+  testDoppl           "co.doppl.junit:junit:4.12.0"
+  testImplementation  "org.mockito:mockito-core:1.9.5"
+  testDoppl           "co.doppl.org.mockito:mockito-core:1.9.5.0"
+  testImplementation  "co.doppl.lib:androidbasetest:0.8.8"
+  testDoppl           "co.doppl.lib:androidbasetest:0.8.8.0"
 }
 ```
 
@@ -314,7 +339,11 @@ helps us ensure that we have added all the necessary `doppl` statements.
 In many cases, there is a 1:1 mapping between the `compile` statement
 and the corresponding `doppl` statement.
 
-The pair of `co.doppl.lib:androidbasetest` dependencies set up the framework
+Similarly, we need to pull in JUnit and Mockito for our tests. That requires
+pairs of dependencies, with `testImplementation` for the dependency to use
+for native Java testing and `testDoppl` for the dependency to use on iOS.
+
+The pair of `co.doppl.lib:androidbasetest` dependencies provide the rest of the framework
 to allow us to build and run our JUnit-based tests on iOS. The
 documentation on [testing with Doppl](https://github.com/doppllib/doppllib.github.io/blob/master/docs/Testing.md#tests-and-testdoppl)
 has more details on this setup.
@@ -322,28 +351,7 @@ has more details on this setup.
 Now, allow Android Studio to sync the project with the Gradle build files, since
 Android Studio has been pestering you for the past few steps to go do that.
 
-## Step #7: Generate the Pods
-
-Now, you can run the `dopplBuild` Gradle task.
-
-From inside of Android Studio, you will find the `dopplBuild` task in the
-Gradle tool, in the `doppl` category under the project root:
-
-![Gradle Tool, Showing dopplBuild Task](./AddingDoppl-2.png)
-
-Double-click on that entry to run the task:
-
-![Android Studio, Showing dopplBuild Output](./AddingDoppl-3.png)
-
-If you prefer, run the `dopplBuild` task from the command line, from the
-project root directory, using `gradle` (if you have a compatible version
-of Gradle installed) or `./gradlew` (if you prefer to use the Gradle Wrapper).
-
-At this point, if you have been doing this work on a machine that is not
-your iOS development machine, transfer the project &mdash; including the `build/`
-directory &mdash; over to that iOS development machine.
-
-## Step #8: Create the Xcode Projects
+## Step #7: Create the Xcode Projects
 
 You now need to create *two* Xcode projects: one for the app, and one for
 the tests. Technically, these can reside anywhere, but it is a bit simpler if they
@@ -388,7 +396,7 @@ Then, repeat these steps, but using `iosTest` instead of `iosApp` as the product
 name. You can use File > New > Project... from the main menu to start creating the
 `iosTest` project.
 
-## Step #9: Add the Pod to the Projects
+## Step #8: Define the Podfiles
 
 Open up your favorite text editor. Then, take the following content and put
 it in a file named `Podfile` in the `iosApp/` directory that you created
@@ -397,9 +405,11 @@ in the previous step:
 ```ruby
 platform :ios, '9.0'
 
+install! 'cocoapods', :deterministic_uuids => false
+
 target 'iosApp' do
     use_frameworks!
-    pod 'doppllib', :path => '../app/build'
+    pod 'doppllib', :path => '../app'
 end
 ```
 
@@ -414,19 +424,35 @@ is `iosTest`:
 ```ruby
 platform :ios, '9.0'
 
+install! 'cocoapods', :deterministic_uuids => false
+
 target 'iosTest' do
     use_frameworks!
-    pod 'testdoppllib', :path => '../app/build'
+    pod 'testdoppllib', :path => '../app'
 end
 ```
 
-Open up a command prompt on your iOS development machine (Terminal, iTerm2,
-etc.). Navigate to the `iosApp/` directory, and run `pod install`. This will
-take what Doppl generated and set it up as a pod for use in this Xcode project.
-Then, switch to the `iosTest/` directory and run `pod install` there. Each
-should give you output akin to the following:
+## Step #9: Generate the Pods
 
-![Output of pod install Command](./AddingDoppl-8.png)
+Now, you can run the `dopplBuild` Gradle task.
+
+From inside of Android Studio, you will find the `dopplBuild` task in the
+Gradle tool, in the `doppl` category under the project root:
+
+![Gradle Tool, Showing dopplBuild Task](./AddingDoppl-2.png)
+
+Double-click on that entry to run the task:
+
+![Android Studio, Showing dopplBuild Output](./AddingDoppl-3.png)
+
+If you prefer, run the `dopplBuild` task from the command line, from the
+project root directory, using `gradle` (if you have a compatible version
+of Gradle installed) or `./gradlew` (if you prefer to use the Gradle Wrapper).
+
+When that is completed, in a terminal window, navigate to the `iosApp/`
+directory and run `pod install`. This will complete the process of creating
+the pods for this workspace. Then, navigate to the `iosTest/` directory
+and run `pod install` there as well.
 
 ## Step #10: Build the Pods
 
@@ -440,9 +466,9 @@ the build has actually completed.
 
 Then, repeat this process with the `iosTest.xcworkspace` file in the `iosTest/` project.
 
-## Step #11: Copy Generated Files Into XCode
+## Step #11: Copy Generated Test Files Into XCode
 
-If you look at `app/build/j2objcSrcGenTest/`, you will find two files of note:
+If you look at `app/build/`, you will find two files of note:
 
 - `dopplTests.txt`, which lists the JUnit test classes that we specified via
 `testIdentifier` in `dopplConfig`
@@ -557,7 +583,14 @@ show the test results in the console, and you should see that all tests pass:
 
 ![Xcode Console Transcript, Showing Test Output](./AddingDoppl-14.png)
 
-## Step #14: Access the Generated Code From Swift
+## Step #14: Copy Generated App File Into XCode
+
+Copy `prefix.properties` from `app/build/` into your `iosApp/` workspace, to have it be alongside your other
+files in `iosApp/` (e.g., peers of `AppDelegate.swift` and
+`ViewController.swift`), much as we did back in Step #11. However, this time,
+we are only copying this one file, as we do not need `dopplTests.txt`.
+
+## Step #15: Access the Generated Code From Swift
 
 Most likely, your job is to ship an app with a user interface, not just
 a working test suite. For that, you will need to be able to access the

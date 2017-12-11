@@ -19,6 +19,9 @@ Make sure that you have gone through the [tutorial for adding Doppl to an app](.
 Not only do you need the experience of having added Doppl to an existing app,
 but this will ensure that you have the Doppl toolchain set up.
 
+This tutorial also assumes that you are doing all of your development work
+on macOS. 
+
 ## About the Revised Project
 
 Another reason for going through the [tutorial for adding Doppl to an app](./AddingDoppl)
@@ -71,13 +74,14 @@ the repo, and from there, create a branch on which you will make your Doppl-rela
 changes. For some private library, you will need to decide how exactly you want to manage
 the Doppl conversion process with respect to branches, version numbering, etc.
 
-In this case, we will simply work in a scrap clone of the `SOLibrary` project,
-which you can get from
-[the `SOLibrary` starter project GitHub repository](https://github.com/doppllib/SOLibrary).
+In this case, we will simply work in a scrap clone of the `SOLibrary` project.
+Clone or download [the 1.0.2 tagged edition](https://github.com/doppllib/SOLibrary/tree/v1.0.2)
+of the starter project from
+[its GitHub repository](https://github.com/doppllib/SOLibrary).
 
 As with the `SOAndroid` tutorial,
-the first steps of this tutorial can be performed on any Android development
-machine. Later steps will require a macOS development machine, though.
+this tutorial also assumes that you are doing all of your development work
+on macOS. 
 
 ## Step #3: Add local.properties
 
@@ -119,7 +123,7 @@ buildscript {
     maven { url 'https://dl.bintray.com/doppllib/maven2' }
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:3.0.0'
+    classpath 'com.android.tools.build:gradle:3.0.1'
   }
 }
 
@@ -146,7 +150,7 @@ In the `build.gradle` file in the project root, add the following line to the
 `dependencies` closure in the `buildscript` closure:
 
 ```groovy
-classpath 'co.doppl:gradle:0.9.3'
+classpath 'co.doppl:gradle:0.10.7'
 ```
 
 This should give you something like:
@@ -161,8 +165,8 @@ buildscript {
     maven { url 'https://dl.bintray.com/doppllib/maven2' }
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:3.0.0'
-    classpath 'co.doppl:gradle:0.9.3'
+    classpath 'com.android.tools.build:gradle:3.0.1'
+    classpath 'co.doppl:gradle:0.10.7'
   }
 }
 
@@ -197,6 +201,8 @@ dopplConfig {
     include 'co/doppl/so/**'
   }
 
+  javaDebug true
+
   testIdentifier {
     include 'co/doppl/so/RepositoryTest.java'
   }
@@ -208,7 +214,7 @@ This is very similar to the one from the `SOAndroid` sample. The differences are
 - All classes in this module are to be translated, so we can use a single
 `include` statement in the `translatePattern` closure to declare them all
 
-- `translatedPathPrefix` does not work with libraries, and so we can skip those
+- `translatedPathPrefix` does not work with libraries, so we can skip those
 
 ## Step #7: Define Doppl Dependencies
 
@@ -221,8 +227,8 @@ First, add in the `dopplArchVer` and `dopplRetroVer` constants that we used in
 `SOAndroid`:
 
 ```groovy
-def dopplArchVer = "1.0.0.0-rc1"
-def dopplRetroVer = "2.3.0.7"
+def dopplArchVer = "1.0.0.2-rc1"
+def dopplRetroVer = "2.3.0.10"
 ```
 
 Then, replace the `dependencies` closure in `service-api/build.gradle` with the
@@ -235,9 +241,9 @@ dependencies {
   api                 "android.arch.lifecycle:extensions:$archVer"
   doppl               "co.doppl.android.arch.lifecycle:extensions:$dopplArchVer"
   implementation      "io.reactivex.rxjava2:rxjava:2.1.5"
-  doppl               "co.doppl.io.reactivex.rxjava2:rxjava:2.1.5.0"
+  doppl               "co.doppl.io.reactivex.rxjava2:rxjava:2.1.5.2"
   implementation      "io.reactivex.rxjava2:rxandroid:2.0.1"
-  doppl               "co.doppl.io.reactivex.rxjava2:rxandroid:2.0.1.2"
+  doppl               "co.doppl.io.reactivex.rxjava2:rxandroid:2.0.1.7"
   implementation      "com.squareup.retrofit2:retrofit:$retroVer"
   implementation      "com.squareup.retrofit2:converter-gson:$retroVer"
   implementation      "com.squareup.retrofit2:adapter-rxjava2:$retroVer"
@@ -246,32 +252,18 @@ dependencies {
   doppl               "co.doppl.com.squareup.retrofit2.urlsession:adapter-rxjava2:$dopplRetroVer"
 
   testImplementation  "junit:junit:4.12"
-  testImplementation  "co.doppl.lib:androidbasetest:0.8.5"
-  testDoppl           "co.doppl.lib:androidbasetest:0.8.5.0"
+  testDoppl           "co.doppl.junit:junit:4.12.0"
+  testImplementation  "org.mockito:mockito-core:1.9.5"
+  testDoppl           "co.doppl.org.mockito:mockito-core:1.9.5.0"
+  testImplementation  "co.doppl.lib:androidbasetest:0.8.8"
+  testDoppl           "co.doppl.lib:androidbasetest:0.8.8.0"
 }
 ```
 
 As before, we set up `doppl` equivalents for everything that we had been using
 for Android, plus add some Doppl dependencies specific for our unit tests.
 
-## Step #8: Perform the Doppl Conversion
-
-Next, open the Gradle tool in Android Studio, and in the `:service-api` set of
-`doppl` tasks, run `dopplBuild`:
-
-![`dopplBuild` Task in Android Studio](./DopplLibrary-1.png)
-
-As before, this will convert your Java into Objective-C and package them into
-pods for easy use from iOS projects in Xcode. And, for this sample project,
-everything should build cleanly:
-
-![Results of `dopplBuild` Task in Android Studio](./DopplLibrary-2.png)
-
-The following steps will need to be performed on a macOS machine set up
-for iOS development. If you were doing the preceding steps on some other
-machine, transfer your project over to the macOS machine now.
-
-## Step #9: Create the Library Test Project
+## Step #8: Create the Library Test Project
 
 You now need to create an Xcode project for the tests. As before, these can
 reside anywhere, but it is a bit simpler if they
@@ -311,7 +303,7 @@ Xcode project window.
 
 ![Xcode Project for iosServiceApiTest](./DopplLibrary-4.png)
 
-## Step #9: Build and Add the Library Test Pod
+## Step #9: Define Library Test Podfile
 
 As before, we need to create a `Podfile` for our pod, in the `iosServiceApiTest/`
 directory:
@@ -319,9 +311,11 @@ directory:
 ```ruby
 platform :ios, '9.0'
 
+install! 'cocoapods', :deterministic_uuids => false
+
 target 'iosServiceApiTest' do
     use_frameworks!
-    pod 'doppllib', :path => '../service-api/build'
+    pod 'testdoppllib', :path => '../service-api'
 end
 ```
 
@@ -329,19 +323,33 @@ The differences are:
 
 - Our `target` points to the `iosServiceApiTest` project
 
-- Our `path` points to the `service-api/build/` directory
+- Our `path` points to the `service-api/` directory
 
-Then, from the `iosServiceApiTest/` directory, run `pod install` to set up the
-pod and create the workspace for us to use.
+## Step #10: Perform the Doppl Conversion
 
-Double-click on the `iosServiceApiTest.xcworkspace` file in your
+Next, open the Gradle tool in Android Studio, and in the `:service-api` set of
+`doppl` tasks, run `dopplBuild`:
+
+![`dopplBuild` Task in Android Studio](./DopplLibrary-1.png)
+
+As before, this will convert your Java into Objective-C and package them into
+pods for easy use from iOS projects in Xcode. And, for this sample project,
+everything should build cleanly:
+
+![Results of `dopplBuild` Task in Android Studio](./DopplLibrary-2.png)
+
+When that is completed, in a terminal window, navigate to the `iosServiceApiTest/`
+directory and run `pod install`. This will complete the process of creating
+the pods for this workspace.
+
+Then, double-click on the `iosServiceApiTest.xcworkspace` file in your
 `iosServiceApiTest/` project or otherwise arrange to open it in Xcode. Once
 there, run the project, to confirm that we have no build errors and to set up
 code-completion for the rest of this tutorial.
 
-## Step #10: Testing the Library
+## Step #11: Testing the Library
 
-In `serviceApi/build/j2objcSrcGenTest/`, you should find a `dopplTests.txt`
+In `serviceApi/build/`, you should find a `dopplTests.txt`
 file, as before (There is no `prefix.properties` file, because we are not
 using `translatedPathPrefix`). Copy this file into your `iosServiceApiTest`
 workspace, by dragging it into the `iosServiceApiTest/` files to be a peer
@@ -365,7 +373,7 @@ Then, we need to modify `ViewController.swift` as before:
 At this point, you should be able to run the project in Xcode and see that
 our one test succeeds.
 
-## Step #11: Publish the Artifact
+## Step #12: Publish the Artifact
 
 The artifact representing our converted library is a `.dop` file. We need to
 publish this artifact somewhere for our iOS app to pick it up. For simplicity,
