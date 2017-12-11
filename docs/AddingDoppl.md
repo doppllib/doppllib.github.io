@@ -156,7 +156,7 @@ edited &mdash; add the following line to the `dependencies` closure in the
 `buildscript` closure:
 
 ```groovy
-classpath 'co.doppl:gradle:0.10.5'
+classpath 'co.doppl:gradle:0.10.7'
 ```
 
 This should give you something like:
