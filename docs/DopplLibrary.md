@@ -166,7 +166,7 @@ buildscript {
   }
   dependencies {
     classpath 'com.android.tools.build:gradle:3.0.1'
-    classpath 'co.doppl:gradle:0.10.5'
+    classpath 'co.doppl:gradle:0.10.7'
   }
 }
 
@@ -235,7 +235,7 @@ First, add in the `dopplArchVer` and `dopplRetroVer` constants that we used in
 
 ```groovy
 def dopplArchVer = "1.0.0.2-rc1"
-def dopplRetroVer = "2.3.0.9"
+def dopplRetroVer = "2.3.0.10"
 ```
 
 Then, replace the `dependencies` closure in `service-api/build.gradle` with the
@@ -322,7 +322,7 @@ install! 'cocoapods', :deterministic_uuids => false
 
 target 'iosServiceApiTest' do
     use_frameworks!
-    pod 'testdoppllib', :path => '../service-api/build'
+    pod 'testdoppllib', :path => '../service-api'
 end
 ```
 
@@ -330,7 +330,7 @@ The differences are:
 
 - Our `target` points to the `iosServiceApiTest` project
 
-- Our `path` points to the `service-api/build/` directory
+- Our `path` points to the `service-api/` directory
 
 ## Step #10: Perform the Doppl Conversion
 
@@ -352,7 +352,7 @@ code-completion for the rest of this tutorial.
 
 ## Step #11: Testing the Library
 
-In `serviceApi/build/j2objcSrcGenTest/`, you should find a `dopplTests.txt`
+In `serviceApi/build/`, you should find a `dopplTests.txt`
 file, as before (There is no `prefix.properties` file, because we are not
 using `translatedPathPrefix`). Copy this file into your `iosServiceApiTest`
 workspace, by dragging it into the `iosServiceApiTest/` files to be a peer

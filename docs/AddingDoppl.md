@@ -169,7 +169,7 @@ buildscript {
   }
   dependencies {
     classpath 'com.android.tools.build:gradle:3.0.1'
-    classpath 'co.doppl:gradle:0.10.5'
+    classpath 'co.doppl:gradle:0.10.7'
   }
 }
 
@@ -293,7 +293,7 @@ Add these two to that block:
 
 ```groovy
 def dopplArchVer = "1.0.0.2-rc1"
-def dopplRetroVer = "2.3.0.9"
+def dopplRetroVer = "2.3.0.10"
 ```
 
 ### Add Some doppl Statements
@@ -417,7 +417,7 @@ install! 'cocoapods', :deterministic_uuids => false
 
 target 'iosApp' do
     use_frameworks!
-    pod 'doppllib', :path => '../app/build'
+    pod 'doppllib', :path => '../app'
 end
 ```
 
@@ -436,7 +436,7 @@ install! 'cocoapods', :deterministic_uuids => false
 
 target 'iosTest' do
     use_frameworks!
-    pod 'testdoppllib', :path => '../app/build'
+    pod 'testdoppllib', :path => '../app'
 end
 ```
 
@@ -471,13 +471,15 @@ Then, repeat this process with the `iosTest.xcworkspace` file in the `iosTest/` 
 
 ## Step #11: Copy Generated Test Files Into XCode
 
-If you look at `app/build/j2objcSrcGenTest/`, you will find two files of note:
+If you look at `app/build/`, you will find two files of note:
 
 - `dopplTests.txt`, which lists the JUnit test classes that we specified via
 `testIdentifier` in `dopplConfig`
 
 - `prefix.properties`, which lists the items we defined in `translatePathPrefix`
 statements in `dopplConfig`
+
+TODO update screenshot
 
 ![macOS Finder, Showing Files to Add](./AddingDoppl-9.png)
 
@@ -489,6 +491,8 @@ your other files in `iosTest/` (e.g., peers of `AppDelegate.swift` and
 
 When you drag the files from the Finder into Xcode, a popup will appear for
 you to configure the copy operation:
+
+TODO update screenshot?
 
 ![Xcode File Copy Form](./AddingDoppl-11.png)
 
@@ -588,14 +592,10 @@ show the test results in the console, and you should see that all tests pass:
 
 ## Step #14: Copy Generated App File Into XCode
 
-If you look at `app/build/j2objcSrcGenMain/`, you will find a
-`prefix.properties`, akin to the one that we had in `app/build/j2objcSrcGenTest/`
-from Step #11 above.
-
-Copy that into your `iosApp/` workspace, to have it be alongside your other
+Copy `prefix.properties` from `app/build/` into your `iosApp/` workspace, to have it be alongside your other
 files in `iosApp/` (e.g., peers of `AppDelegate.swift` and
 `ViewController.swift`), much as we did back in Step #11. However, this time,
-we are only copying this one file, as there is no `dopplTests.txt` file.
+we are only copying this one file, as we do not need `dopplTests.txt`.
 
 ## Step #15: Access the Generated Code From Swift
 
