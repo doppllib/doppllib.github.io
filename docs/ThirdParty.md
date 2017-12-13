@@ -592,14 +592,11 @@ assertContainsOnly(data, (byte) 0x00);
 
 To repair the ones that remain:
 
-- Replace `assertThat(queue.isEmpty()).isTrue();` with `assertTrue(queue.isEmpty())`
-(one occurrence)
+- Replace the one occurrence of `assertThat(queue.isEmpty()).isTrue();` with `assertTrue(queue.isEmpty())`
 
-- Replace `assertThat(queue.peek()).isNull();` with `assertNull(queue.peek());`
-(one occurrence)
+- Replace the one occurrence of `assertThat(queue.peek()).isNull();` with `assertNull(queue.peek());`
 
-- Replace both occurrences of `assertThat(ex).hasMessage(...)` to
-`assertThat(ex.getMessage(), containsString(...));`
+- Replace the one occurrence of `assertThat(ex).hasMessage(...)` with `assertThat(ex.getMessage(), containsString(...));`
 
 After these changes, your tests should run once again, but this time without
 the unsupported test dependencies.
