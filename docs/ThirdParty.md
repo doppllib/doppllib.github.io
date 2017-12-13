@@ -563,7 +563,7 @@ Open up the Replace panel (e.g., Ctrl-R, Command-R) and ensure that the "Regex"
 checkbox is checked. Then ask to search for `\)\.isEqualTo\((.*)\)\;`, replacing
 it with `equalTo($1));`:
 
-TBD screenshot
+![Android Studio, Showing Regex Replace Panel](./ThirdParty-6.png)
 
 Clicking "Replace All" will clear up the vast majority of the errors.
 
