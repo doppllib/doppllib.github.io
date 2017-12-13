@@ -538,7 +538,7 @@ First, we need to add the `hamcrest-core` dependencies:
 
 ```groovy
 testImplementation "org.hamcrest:hamcrest-core:1.3"
-testDoppl "org.hamcrest:hamcrest-core:1.3.0"
+testDoppl "co.doppl.org.hamcrest:hamcrest-core:1.3.0"
 ```
 
 Then, in `QueueFileTest`, add a handful of Hamcrest and JUnit imports that we will need:
@@ -549,8 +549,10 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 ```
+
+You can also remove the failing `org.fest.assertions.Assertions.assertThat` import,
+as we will no longer be needing it.
 
 The vast majority of the FEST constructs that we need to convert are
 of the form `assertThat(...).isEqualTo(...)`. If you are using Android Studio
