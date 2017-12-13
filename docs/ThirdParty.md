@@ -511,8 +511,8 @@ assertEquals(queueFile.size(), 2);
 Then, you can remove the import for `org.fest.assertions.Assertions`, as it is
 unused.
 
-All the remaining errors come from uses of `assertThat()`. These need to be
-replaced with native JUnit equivalents:
+All the remaining errors come from uses of `assertThat()`. Many of those could
+be replaced by JUnit direct equivalents:
 
 |FEST Structure|JUnit Equivalent Structure|
 |:------------:|:------------------------:|
@@ -523,31 +523,56 @@ replaced with native JUnit equivalents:
 |`assertThat(...).isEqualTo(...)`|`assertEquals(..., ...)`
 |`assertThat(...).isEqualTo(...).as("msg")`|`assertEquals("msg", ..., ...)`
 
-These will require further `static` imports, for `assertArrayEquals()`, `assertTrue()`,
-`assertNull()`, and `assertEquals()`.
+However, making those changes is error-prone. It is easy to accidentally use
+`assertEquals()` instead of `assertArrayEquals()`, for example, and wind up
+with failing tests.
 
-There is an `assertThat().hasMessage()` statement (line #141):
+Part of the reason why Doppl does not support FEST is because
+[FEST seems to be abandoned](https://github.com/alexruiz/fest-assert-2.x). For
+Android testing, Google has adopted [Hamcrest](http://hamcrest.org/JavaHamcrest/),
+as it offers a similar feature set to FEST, is actively maintained, and helps
+promote the consumption of cured pork products. So, let's replace FEST with
+Hamcrest.
 
-```java
-assertThat(ex).hasMessage("File is corrupt; length stored in header is 0.");
+First, we need to add the `hamcrest-core` dependencies:
+
+```groovy
+testImplementation "org.hamcrest:hamcrest-core:1.3"
+testDoppl "org.hamcrest:hamcrest-core:1.3.0"
 ```
 
-This confirms that the exception message contains the listed string.
-This can be converted to:
+Then, in `QueueFileTest`, add a handful of Hamcrest and JUnit imports that we will need:
 
 ```java
-assertTrue(ex.getMessage().contains("File is corrupt; length stored in header is 0."));
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 ```
 
-The only ones that are not boilerplate conversions are two `assertThat().containsOnly()`
-statements (lines #624 and 632):
+The vast majority of the FEST constructs that we need to convert are
+of the form `assertThat(...).isEqualTo(...)`. If you are using Android Studio
+(or IntelliJ IDEA), the regular expression search-and-replace makes it fairly
+easy to bulk-convert these to the Hamcrest equivalent: `assertThat(..., equalTo(...))`.
 
-```java
-assertThat(data).containsOnly((byte) 0x00);
-```
+Open up the Replace panel (e.g., Ctrl-R, Command-R) and ensure that the "Regex"
+checkbox is checked. Then ask to search for `\)\.isEqualTo\((.*)\)\;`, replacing
+it with `equalTo($1));`:
 
-`containsOnly()` confirms that all elements of the `data` array are the
-supplied value. You can add this replacement method:
+TBD screenshot
+
+Clicking "Replace All" will clear up the vast majority of the errors.
+
+There will be two more occurrences of `assertThat().isEqualTo()`. However,
+they chain an `as()` after `isEqualTo()`, supplying a message to display
+for the assertion failure. You can manually convert those to
+`assertThat(..., ..., equalTo(...))`, where the first `...` is the message.
+
+There are two `assertThat(data).containsOnly((byte) 0x00);` lines. Unfortunately,
+`hamcrest-core` does not provide a good solution for this one. So, instead,
+you can add this replacement method:
 
 ```java
 static void assertContainsOnly(byte[] data, byte value) {
@@ -563,11 +588,19 @@ Then, convert those two error lines to:
 assertContainsOnly(data, (byte) 0x00);
 ```
 
-Finally, remove the import for `org.fest.assertions.Assertions.assertThat`, as
-it is unused.
+To repair the ones that remain:
+
+- Replace `assertThat(queue.isEmpty()).isTrue();` with `assertTrue(queue.isEmpty())`
+(one occurrence)
+
+- Replace `assertThat(queue.peek()).isNull();` with `assertNull(queue.peek());`
+(one occurrence)
+
+- Replace both occurrences of `assertThat(ex).hasMessage(...)` to
+`assertThat(ex.getMessage(), containsString(...));`
 
 After these changes, your tests should run once again, but this time without
-the extra test dependencies.
+the unsupported test dependencies.
 
 ## Step #6: Test on iOS
 
