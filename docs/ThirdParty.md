@@ -561,7 +561,7 @@ easy to bulk-convert these to the Hamcrest equivalent: `assertThat(..., equalTo(
 
 Open up the Replace panel (e.g., Ctrl-R, Command-R) and ensure that the "Regex"
 checkbox is checked. Then ask to search for `\)\.isEqualTo\((.*)\)\;`, replacing
-it with `.equalTo($1));`:
+it with `, equalTo($1));`:
 
 ![Android Studio, Showing Regex Replace Panel](./ThirdParty-6.png)
 
