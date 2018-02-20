@@ -43,6 +43,28 @@ as they arrive. Keep the RxJava logic inside the to-be-converted code, so that
 your UI code can deal with simpler methods on simpler classes, both in the
 Android UI and in the iOS UI.
 
+## Lose the Android Resources
+
+Most Android resources are tied to the UI and therefore would fall outside
+of Doppl's responsibility. However, occasionally, non-UI code may want data
+from resources, such as using string resources for Web service URLs. Doppl
+does not convert Android resources, nor does the `Context` implementation
+supplied by Doppl provide access to resources. As a result, you need to find
+some way of getting this data that does not directly involve an Android resource.
+
+Options include:
+
+- Switch from resources to `BuildConfig` values, populated via `buildConfigField`
+in your `build.gradle` file
+
+- Consider the data to be input supplied by an Android component that is
+calling directly into your to-be-converted code (e.g., an activity or service)
+
+- Consider the data to be input supplied via some form of dependency injection
+
+- Hard-code the values, whether as a stop-gap measure or as the long-term
+approach
+
 ## Mock, But Don't Spy
 
 Most testing libraries that you will use fall into two categories:
@@ -146,6 +168,16 @@ be run (e.g., "com.example.app.AwesomeTest#somethingCool")
 When you are ready to return to running your entire test suite, remove
 (or comment out) the `runSpecificWithNSString()` call and uncomment the
 `runResource()` call.
+
+## macOS Requirements
+
+iOS development is done almost exclusively on macOS, as that is the only platform for
+which Apple provides development tools. As a result, Doppl itself is optimized
+for use on macOS. Ideally, everybody involved in Doppl-enabled app development
+is using macOS, and ideally you are using a CI server that supports macOS.
+
+If you wish to try to work on Doppl-based apps using something other than macOS
+for development or CI, [ask for advice](./Support).
 
 ## Library-Specific Concerns
 
