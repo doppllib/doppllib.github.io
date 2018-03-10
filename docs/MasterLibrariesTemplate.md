@@ -7,8 +7,8 @@ Java source libraries that work well as simple source dependencies.
 
 ```gradle
 dependencies {
-  testImplementation "junit:junit:4.12"
-  testDoppl "co.doppl.junit:junit:4.12.0"
+  testImplementation "junit:junit:$doppl_junit_java"
+  testDoppl "co.doppl.junit:junit:$doppl_junit_doppl"
 }
 ```
 
@@ -19,14 +19,22 @@ split out into its own dependency. The J2objc version supports **mock** but not 
 
 ```gradle
 dependencies {
-  testImplementation "org.mockito:mockito-core:1.9.5"
-  testDoppl "co.doppl.org.mockito:mockito-core:1.9.5.1"
+  testImplementation "org.mockito:mockito-core:$doppl_mockito_java"
+  testDoppl "co.doppl.org.mockito:mockito-core:$doppl_mockito_doppl"
 }
 ```
 
 ## Gson
 
 https://github.com/doppllib/gson
+
+```groovy
+dependencies {
+    compile 'com.google.code.gson:gson:$doppl_gson262_java'
+    doppl 'co.doppl.com.google.code.gson:gson:$doppl_gson262_doppl'
+}
+```
+
 
 ## Dagger
 

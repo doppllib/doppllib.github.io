@@ -3,35 +3,47 @@ layout: default
 title: {{ site.name }}
 ---
 <div id="home">
-  <center>
-  <img src="dopplslide.png" style="max-width: 450px;max-height: 250px"/>
-</center>
-<h2>Beta!</h2>
-Doppl has been running under "technical preview" for the past several months. We've been
-gathering feedback and making modifications to the build system. There will be ongoing changes
-and likely bug fixes, but this will be mostly just for the gradle plugin itself. J2objc
-has been stable and in production for years. We are currently shipping production apps
-using the Doppl build system and libraries.
-<br/>
-<br/>
+    <center>
+        <img src="dopplslide.png" style="max-width: 450px;max-height: 250px"/>
+    </center>
+    Doppl is a set of tools and libraries built on top of Google's J2objc. While J2objc is intentionally neutral with
+    regards to Android, the Doppl ecosystem is designed to facilitate sharing logic and architecture
+    between Android and iOS.
 
-<h2>Site Updates</h2>
+    <h2>Getting Started</h2>
+    Follow the basic setup and app tutorial here.
 
-    This site and our repo docs are currently going through rewrites to reflect updates to the
-    framework. Please report issues through one of the various channels below.
+    <h2>Components</h2>
+    Read more about the available components:
+
     <ul>
-        <li><a href="docs/Intro.html">Intro</a></li>
-        <li><a href="docs/Tutorial.html">Tutorial</a></li>
-        <li><a href="docs/Scope.html">Doppl code sharing scope</a></li>
-        <li><a href="docs/Support.html">Doppl Support</a></li>
+        <li>Gradle Plugin</li>
+        <li>Android Runtime Support</li>
+        <li>Testing Support</li>
+        <li>Supported Libraries</li>
     </ul>
 
+    <h2>Conceptual Overview</h2>
+    The "why" from a <a href="https://www.youtube.com/watch?v=cfhLBDuImOM">talk at Droidcon SF</a>.<br/>
 
-<h2>Keep in touch</h2>
+    <h2>Status</h2>
+    Doppl has been running under "technical preview" for the past several months. We've been
+    gathering feedback and making modifications to the build system.<p/>
+    <h3>Production Ready</h3>
+    "Doppl" had a slightly modified J2objc build, but the modifications were really minor. Doppl runs fully
+    stock J2objc as of latest source and presumably whenever version 2.0.6 is released, the downloaded stock version.
+    The build system is going through revisions, but J2objc itself, and the libraries we're building on, are used
+    in production with very high profile applications from a number of companies.
+    <p/>
+    The libraries are Android community standards, the Android architecture code is from AOSP directly. Doppl as an
+    architectural sharing framework is production ready.<br/>
+    <br/>
 
-<a href="/slackinvite.html" target="joinslack">Join Slack Group</a><br/>
-<a href="https://twitter.com/doppllib" target="doppllib">@doppllib</a><br/>
-<a href="http://eepurl.com/b9Kzez" target="mailinglist">Mailing List</a><br/>
-<a href="https://medium.com/doppl" target="medium">Blog</a><br/>
+    <h2>Keep in touch</h2>
+
+    <a href="/slackinvite.html" target="joinslack">Join Slack Group</a><br/>
+    <a href="https://twitter.com/doppllib" target="doppllib">@doppllib</a><br/>
+    <a href="http://eepurl.com/b9Kzez" target="mailinglist">Mailing List</a><br/>
+    <a href="https://medium.com/doppl" target="medium">Blog</a><br/>
 
 </div>
