@@ -1,4 +1,123 @@
 ---
 ---
 
-@import "jekyll-theme-midnight";
+@import "jekyll-theme-minimal";
+
+body {
+  padding: 1em;
+  background-color: rgb(240,240,240);
+  color: rgb(40,15,60);
+}
+
+.lillinks
+{
+  display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+
+    a {
+      font-size:8pt;
+      font-weight: bold;
+      color: #ae7faf;
+    }
+}
+
+.legals {
+  text-align: center;
+  font-size: 5pt;
+}
+
+
+a {
+  font-weight: bold;
+  color: rgb(40,15,60);
+}
+
+a:hover {
+  color: #f5e159;
+}
+
+.touchlablogo a, .madeby
+ {
+  font-size: 14pt;
+}
+
+.touchlablogo .t{
+  color: #5ec9de;
+}
+.touchlablogo .o{
+  color: #61cecf;
+}
+.touchlablogo .u{
+  color: #64ceb9;
+}
+.touchlablogo .c{
+  color: #6ccea1;
+}
+.touchlablogo .h{
+  color: #85ce91;
+}
+.touchlablogo .l{
+  color: #b0cf59;
+}
+.touchlablogo .a{
+  color: #dace4e;
+}
+.touchlablogo .b{
+  color: #f5e159;
+}
+
+header, footer {
+  border-radius: .3em;
+  background-color: rgb(60,30,60);
+  color: #ffffff;
+  padding: 2em;
+}
+
+.logoback {
+  border-radius: .3em;
+  background-color: rgb(60,30,60);
+  color: #ffffff;
+  padding: .3em;
+}
+
+header h1, footer h1, header h2, footer h2, header h3, footer h3{
+  color: #ffffff;
+}
+
+header a, footer a{
+  color: #f5e159;
+  font-weight: bold;
+}
+
+header a:hover, footer a:hover{
+  color: white;
+  font-weight: bold;
+}
+
+header p.view  {
+  margin:0 0 10px;
+}
+
+p.madeby {
+  margin:0 0 4px;
+}
+
+@media print, screen and (max-width: 960px) {
+  .topmenu {
+    /*display: none;*/
+  }
+  header .madeby, header .headlils {
+    display: none;
+  }
+  .nomargin {
+    margin:0;
+  }
+}
+
+@media print, screen and (min-width: 960px) {
+  footer {
+    display: none;
+  }
+}

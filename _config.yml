@@ -1,20 +1,11 @@
+title:        Doppl
+tagline:      Android-centric cross platform
 description: Android-centric cross platform
 show_downloads: false
 google_analytics: UA-101147450-1
-theme:
-# Setup
-title:        Doppl
-tagline:      Android-centric cross platform
-paginate:     1
+theme: jekyll-theme-minimal
 
 # About/contact
 author:
   name:       Kevin Galligan
   url:        http://doppl.co
-
-# Gems
-gems:
-  - jekyll-paginate
-
-#Others
-markdown: kramdown

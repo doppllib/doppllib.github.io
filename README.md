@@ -1,69 +1,92 @@
-# Jekyll Cayman theme
+# The Minimal theme
 
-This is a [Jekyll][1] theme for [@jasonlong][2]'s [Cayman theme][4] on [GitHub Pages][3].
+[![Build Status](https://travis-ci.org/pages-themes/minimal.svg?branch=master)](https://travis-ci.org/pages-themes/minimal) [![Gem Version](https://badge.fury.io/rb/jekyll-theme-minimal.svg)](https://badge.fury.io/rb/jekyll-theme-minimal)
 
-Cayman is a clean, responsive theme for [GitHub Pages](https://pages.github.com). This theme is available as an option if you use the [Automatic Page Generator](https://help.github.com/articles/creating-pages-with-the-automatic-generator/) or you can copy the template and styles to use on your own.
+*Minimal is a Jekyll theme for GitHub Pages. You can [preview the theme to see what it looks like](http://pages-themes.github.io/minimal), or even [use it today](#usage).*
 
-You can preview the theme at http://jasonlong.github.io/cayman-theme or with real content at http://jasonlong.github.io/geo_pattern.
+![Thumbnail of minimal](thumbnail.png)
 
-![](http://cl.ly/image/1T3r3d18311V/content)
+## Usage
 
-# How to use it?
+To use the Minimal theme:
 
-Download the theme @ http://github.com/pietromenna/jekyll-cayman-theme/archive/master.zip
+1. Add the following to your site's `_config.yml`:
 
-Unzip it and use it as a regular jekyll folder.
+    ```yml
+    theme: jekyll-theme-minimal
+    ```
 
+2. Optionally, if you'd like to preview your site on your computer, add the following to your site's `Gemfile`:
+
+    ```ruby
+    gem "github-pages", group: :jekyll_plugins
+    ```
+
+
+
+## Customizing
+
+### Configuration variables
+
+Minimal will respect the following variables, if set in your site's `_config.yml`:
+
+```yml
+title: [The title of your site]
+description: [A short description of your site's purpose]
 ```
-$ unzip jekyll-cayman-theme-master.zip
+
+Additionally, you may choose to set the following optional variables:
+
+```yml
+show_downloads: ["true" or "false" to indicate whether to provide a download URL]
+google_analytics: [Your Google Analytics tracking ID]
 ```
 
-Get inside the newly extracted folder
-```
-$ cd jekyll-cayman-theme-master
-```
+### Stylesheet
 
-Get the required gems
-```
-$ bundle install
-```
+If you'd like to add your own custom styles:
 
-Use it!
+1. Create a file called `/assets/css/style.scss` in your site
+2. Add the following content to the top of the file, exactly as shown:
+    ```scss
+    ---
+    ---
 
-```
-$ jekyll serve
-```
+    @import "{{ site.theme }}";
+    ```
+3. Add any custom CSS (or Sass, including imports) you'd like immediately after the `@import` line
 
-For more details read about [Jekyll][1] on its web page.
+### Layouts
 
-# Setup
+If you'd like to change the theme's HTML layout:
 
-Some important configuration can be done in the file `_config.yml`. Please, check the Setup section in that file.
+1. [Copy the original template](https://github.com/pages-themes/minimal/blob/master/_layouts/default.html) from the theme's repository<br />(*Pro-tip: click "raw" to make copying easier*)
+2. Create a file called `/_layouts/default.html` in your site
+3. Paste the default layout content copied in the first step
+4. Customize the layout as you'd like
 
+## Roadmap
 
-## baseurl
+See the [open issues](https://github.com/pages-themes/minimal/issues) for a list of proposed features (and known issues).
 
-`baseurl` parameter is required in the case the site doesn't sit on the root of the domain. For example: http://pietromenna.github.io/jekyll-cayman-theme
+## Project philosophy
 
-In the case above the baseurl should be set to "/jekyll-cayman-theme".
+The Minimal theme is intended to make it quick and easy for GitHub Pages users to create their first (or 100th) website. The theme should meet the vast majority of users' needs out of the box, erring on the side of simplicity rather than flexibility, and provide users the opportunity to opt-in to additional complexity if they have specific needs or wish to further customize their experience (such as adding custom CSS or modifying the default layout). It should also look great, but that goes without saying.
 
-In the case the site sits in the root, you can leave `baseurl` as empty "".
+## Contributing
 
-# Contributing
+Interested in contributing to Minimal? We'd love your help. Minimal is an open source project, built one contribution at a time by users like you. See [the CONTRIBUTING file](docs/CONTRIBUTING.md) for instructions on how to contribute.
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/pietromenn/jekyll-cayman-theme.
+### Previewing the theme locally
 
-# Development
+If you'd like to preview the theme locally (for example, in the process of proposing a change):
 
-To set up your environment to develop this theme, run `bundle install`.
+1. Clone down the theme's repository (`git clone https://github.com/pages-themes/minimal`)
+2. `cd` into the theme's directory
+3. Run `script/bootstrap` to install the necessary dependencies
+4. Run `bundle exec jekyll serve` to start the preview server
+5. Visit [`localhost:4000`](http://localhost:4000) in your browser to preview the theme
 
-You theme is setup just like a normal Jelyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
+### Running tests
 
-# License
-
-This work is licensed under a [Creative Commons Attribution 4.0 International](http://creativecommons.org/licenses/by/4.0/) license.
-
-[1]: http://jekyllrb.com/
-[2]: https://github.com/jasonlong
-[3]: http://pages.github.com/
-[4]: https://github.com/jasonlong/cayman-theme
+The theme contains a minimal test suite, to ensure a site with the theme would build successfully. To run the tests, simply run `script/cibuild`. You'll need to run `script/bootstrap` one before the test script will work.

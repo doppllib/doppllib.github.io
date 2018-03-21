@@ -3,72 +3,76 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Doppl &#9830;&#9002; by touchlab</title>
+
+{% seo %}
+
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width">
 
-    <script rel="stylesheet" src="{{ '/assets/js/respond.js' | relative_url }}"></script>
+    <meta http-equiv="Expires" content="-1" />
+
     <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="{{ '/assets/css/ie.css' | relative_url }}">
-    <![endif]-->
-
-    <link rel="stylesheet" href="/assets/css/prism-old3.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <script>
-    var isMac = navigator.platform.toUpperCase().indexOf('MAC')>=0;
-    </script>
   </head>
   <body>
-
-      <div id="header">
-        <a href="/"><img src="/assets/images/nav-logo.png" width="24" height="36" class=" logo"/></a>
-        <nav>
-
-          
-        </nav>
-
-      </div><!-- end header -->
-
     <div class="wrapper">
+      <header>
+        <a href="{{ site.github.url }}"> <h1>{{ site.title | default: site.github.repository_name }}</h1> </a>
+        <p>{{ site.description | default: site.github.project_tagline }}</p>
 
+        <span class="topmenu">
+          <p class="view"><a href="/">Home</a></p>
+          <p class="view"><a href="{{ site.github.owner_url }}">View GitHub</a></p>
+          <p class="view"><small><a href="https://j2objcgradle.github.io">J2objc Gradle</a></small></p>
+          <p class="nomargin"><small>Stack Overflow <a href="https://stackoverflow.com/questions/tagged/doppl">j2objc</a></small></p>
+        </span>
+        <p class="madeby">Made by <a href="https://touchlab.co" class="touchlablogo">
+          <span class="t">T</span><span class="o">O</span><span class="u">U</span><span class="c">C</span><span class="h">H</span><span class="l">L</span><span class="a">A<span class="b">B</span>
+        </a></p>
+        <div class="headlils">
+          <div class="lillinks">
+            <a href="https://twitter.com/doppllib" target="doppllib">@doppllib</a>
+            <a href="http://eepurl.com/b9Kzez" target="mailinglist">Mailing List</a>
+            <a href="https://medium.com/doppl" target="medium">Blog</a>
+            <a href="https://docs.google.com/document/d/1Zq5XUmTpJ31WELILpAq395O_CIg9Yn5frIt1wxq8A30/pub" target="privacy">Privacy</a>
+            <a href="https://docs.google.com/document/d/1A78L5S9cySG3_lOhUu65Ta18-a2FvdfSkC5k0lw8ycQ/pub" target="tos">TOS</a>
+          </div>
+          <div class="legals">Doppl is a Trademark of Touch Lab Inc. Copyright © 2017 Touch Lab Inc  All Rights Reserved.</div>
+        </div>
+      </header>
       <section>
 
-        {{ content }}
+      {{ content }}
 
       </section>
-
+      <footer>
+        <p class="madeby">Made by <a href="https://touchlab.co" class="touchlablogo">
+          <span class="t">T</span><span class="o">O</span><span class="u">U</span><span class="c">C</span><span class="h">H</span><span class="l">L</span><span class="a">A<span class="b">B</span>
+        </a></p>
+        <div class="lillinks">
+          <a href="https://twitter.com/doppllib" target="doppllib">@doppllib</a>
+          <a href="http://eepurl.com/b9Kzez" target="mailinglist">Mailing List</a>
+          <a href="https://medium.com/doppl" target="medium">Blog</a>
+          <a href="https://docs.google.com/document/d/1Zq5XUmTpJ31WELILpAq395O_CIg9Yn5frIt1wxq8A30/pub" target="privacy">Privacy</a>
+          <a href="https://docs.google.com/document/d/1A78L5S9cySG3_lOhUu65Ta18-a2FvdfSkC5k0lw8ycQ/pub" target="tos">TOS</a>
+        </div>
+        <div class="legals">Doppl is a Trademark of Touch Lab Inc. Copyright © 2017 Touch Lab Inc  All Rights Reserved.</div>
+      </footer>
     </div>
+    <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
 
-    <div id="footer">
-      <div id="footerlinks">
-        <a href="/slackinvite.html" target="joinslack">Join Slack Group</a>
-        <a href="https://twitter.com/doppllib" target="doppllib">@doppllib</a>
-        <a href="http://eepurl.com/b9Kzez" target="mailinglist">Mailing List</a>
-        <a href="https://medium.com/doppl" target="medium">Blog</a>
-      </div>
-      <span class="paperwork">
-        <a href="https://docs.google.com/document/d/1Zq5XUmTpJ31WELILpAq395O_CIg9Yn5frIt1wxq8A30/pub" target="privacy">Privacy Policy</a>
-        <a href="https://docs.google.com/document/d/1A78L5S9cySG3_lOhUu65Ta18-a2FvdfSkC5k0lw8ycQ/pub" target="tos">Terms of Service</a>
-      </span>
-      <span>Doppl is a Trademark of Touch Lab Inc.
-Copyright © 2017 Touch Lab Inc  All Rights Reserved.</span>
 
-    </div><!-- end header -->
-
-      <script src="/assets/js/prism-old3.js"></script>
-    {% if site.google_analytics %}
-      <script type="text/javascript">
+  {% if site.google_analytics %}
+    <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
         ga('create', '{{ site.google_analytics }}', 'auto');
         ga('send', 'pageview');
-      </script>
-    {% endif %}
-
+    </script>
+  {% endif %}
   </body>
 </html>
