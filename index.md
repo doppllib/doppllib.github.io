@@ -27,7 +27,8 @@ The "why" of what we're doing: [Droidcon SF Talk](https://www.youtube.com/watch?
 ## Getting Started
 
 Following the move of the Gradle plugin and using a stock J2objc, the docs of both
-the Gradle plugin and Doppl libraries will need modifications. Check back soon as they're updated.
+the Gradle plugin and Doppl libraries will need modifications. Coming soon! Sign up for the
+mailing list and follow twitter to keep in touch!
 
 ## Keep in touch
 
