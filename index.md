@@ -26,9 +26,12 @@ The "why" of what we're doing: [Droidcon SF Talk](https://www.youtube.com/watch?
 
 ## Getting Started
 
-Following the move of the Gradle plugin and using a stock J2objc, the docs of both
-the Gradle plugin and Doppl libraries will need modifications. Coming soon! Sign up for the
-mailing list and follow twitter to keep in touch!
+You should first get familiar with the [J2objc Gradle plugin](https://j2objcgradle.github.io/basicquickstart.html) by
+[running](https://j2objcgradle.github.io/basicsamples/dependencies.html)
+[the](https://j2objcgradle.github.io/basicsamples/testing.html)
+[tutorials](https://j2objcgradle.github.io/basicsamples/androidstuff.html).
+
+Doppl specific docs are currently being updated. To see a more robust sample app, take a look at [DroidconDopplExample](https://github.com/doppllib/DroidconDopplExample).
 
 ## Keep in touch
 
